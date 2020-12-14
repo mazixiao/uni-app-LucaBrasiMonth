@@ -16,7 +16,7 @@
 	import headers from "../../components/headers.vue";
 	export default {
 
-		name: "about",
+		name: "my",
 		components: {
 			headers
 			// [Button.name]: Button,
@@ -45,5 +45,5 @@
 </script>
 
 <style lang="scss" scoped>
-	@import 'about.scss';
+	@import 'my.scss';
 </style>
