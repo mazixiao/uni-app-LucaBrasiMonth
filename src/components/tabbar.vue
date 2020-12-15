@@ -1,14 +1,19 @@
 <template>
-	<block v-for="(item,index) in tabList" :key="index">
-		<view class="navigator" :class="currentTabIndex == index ? 'on' : ''" @tap="switchTab(index)">
-			<view class="icon">
-				<text class="iconfont" :class="item.icon" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]"></text>
-				<text v-if="item.badge" class="uni_badge">{{item.badge}}</text>
-				<text v-if="item.badgeDot" class="uni_badge uni_badge_dot"></text>
+
+	<view>
+		<block v-for="(item,index) in tabList" :key="index">
+			<view class="navigator" :class="currentTabIndex == index ? 'on' : ''" @tap="switchTab(index)">
+				<view class="icon">
+					<text class="iconfont" :class="item.icon" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]"></text>
+					<text v-if="item.badge" class="uni_badge">{{item.badge}}</text>
+					<text v-if="item.badgeDot" class="uni_badge uni_badge_dot"></text>
+				</view>
+				<view class="text" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]">{{item.text}}</view>
 			</view>
-			<view class="text" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]">{{item.text}}</view>
-		</view>
-	</block>
+		</block>
+	</view>
+
+
 
 </template>
 
@@ -50,7 +55,7 @@
 			},
 			tintColor: {
 				type: String,
-				default: '#42b983'
+				default: 'yellow'
 			}
 		},
 		methods: {
@@ -61,3 +66,11 @@
 		},
 	}
 </script>
+
+<style lang="scss" scoped>
+	.navigator {
+		text {
+			background-color: yellow;
+		}
+	}
+</style>

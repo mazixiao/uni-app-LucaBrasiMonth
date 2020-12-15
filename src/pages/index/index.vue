@@ -6,7 +6,9 @@
 		<button form-type="submit" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取信息2</button>
 
 		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff"></headers>
-		<tab-bar :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tab-bar>
+		<tab-bar :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999"  @click="tabClick"></tab-bar>
+		
+		<tabbar2></tabbar2>
 
 	</view>
 </template>
@@ -14,15 +16,17 @@
 <script>
 	// import { Button, Tab, Tabs, List, Cell, Loading, Swipe, SwipeItem } from "vant";
 	import headers from "../../components/headers.vue";
-	
-	import tabBar from '../../components/tabbar.vue'
+
+	import tabBar from '../../components/tabbar.vue';
+	import tabbar2 from '../../components/tabbar2.vue';
 	// Vue.component('tab-bar', tabBar)
-	
+
 	export default {
 		name: "index",
 		components: {
 			headers,
-			tabBar
+			tabBar,
+			tabbar2
 			// [Button.name]: Button,
 			// [Tab.name]: Tab,
 			// [Tabs.name]: Tabs,
@@ -36,12 +40,11 @@
 
 		data() {
 			return {
-				title: 'Hello',
-				currentTabIndex: 1
+				currentTabIndex: 0
 			}
 		},
 		onLoad() {
-uni.hideTabBar()
+			// uni.hideTabBar()
 
 			// 更改顶部文字颜色
 			// uni.setNavigationBarColor({
@@ -52,10 +55,10 @@ uni.hideTabBar()
 
 		},
 		methods: {
-tabClick(index){
-		console.log('返回tabBar索引：' + index)
-		this.currentTabIndex = index
-	},
+			tabClick(index) {
+				console.log('返回tabBar索引：' + index)
+				this.currentTabIndex = index
+			},
 
 
 
