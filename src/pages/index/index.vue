@@ -6,9 +6,12 @@
 		<button form-type="submit" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取信息2</button>
 
 		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff"></headers>
-		<tab-bar :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999"  @click="tabClick"></tab-bar>
+				<tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2>
+
+		<!-- <tabbar2></tabbar2> -->
 		
-		<tabbar2></tabbar2>
+		
+		<navigator open-type="switchTab" url="../my/my">我的</navigator>
 
 	</view>
 </template>
@@ -27,15 +30,7 @@
 			headers,
 			tabBar,
 			tabbar2
-			// [Button.name]: Button,
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
+			// 当前tab高亮索引
 		},
 
 		data() {
@@ -44,7 +39,10 @@
 			}
 		},
 		onLoad() {
-			// uni.hideTabBar()
+
+			uni.hideTabBar({
+				animation:false
+			})
 
 			// 更改顶部文字颜色
 			// uni.setNavigationBarColor({
@@ -59,7 +57,6 @@
 				console.log('返回tabBar索引：' + index)
 				this.currentTabIndex = index
 			},
-
 
 
 			getuserinfo: function() {

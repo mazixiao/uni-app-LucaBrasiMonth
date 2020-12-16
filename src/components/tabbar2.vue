@@ -1,116 +1,104 @@
 <template>
+	<view class="tab-bar-container">
 
-	<view>
-
-
-<!-- 		<view class="tab-bar" style="color: {{tabBar.color}}; background: {{tarBar.backgroundColor}};bottom: 0;height:{{tabBar.isIphoneX ? '83px' : '49px'}};">
-			<view class="tabbarItmeBg">
-				<block wx:for="{{tabBar.list}}" wx:key="pagePath">
-					<navigator url="{{item.pagePath}}" open-type="redirect" class="menu-item" hover-class="none" style="margin-top: {{tabBar.isIphoneX ? '4px' : '0px'}};{{ item.active? 'color: '+(item.selectedColor? item.selectedColor : tabBar.selectedColor) : ''}}">
-						<view class="tabImage">
-							<image class="tabbarIcon" src="{{item.selectedIconPath}}" wx:if="{{item.active}}"></image>
-							<image class="tabbarIcon" src="{{item.iconPath}}" wx:if="{{!item.active}}"></image>
-						</view>
-						<text class="tabbarTitle">{{item.text}}</text>
-					</navigator>
-				</block>
-			</view>
-		</view> -->
-		
-		<view class="tab-bar">
-			<block v-for="(item, index) in tabBar.list" :key="item.pagePath">
-				<navigator :class="{'active': fullPath == item.pagePath}" :url="item.pagePath" open-type="switchTab" > 
-					{{item.text}}
-				</navigator>
-			</block>
-		</view>
-
+		<block v-for="(item,index) in tabList" :key="index">
+			<navigator class="navigator" :url="item.pagePath" open-type="switchTab" :class="currentTabIndex == index ? 'on' : ''" @click="switchTab(index)">
+				<view class="icon">
+					<text class="iconfont" :class="item.icon" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]"></text>
+				</view>
+				<view class="text" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]">{{item.text}}</view>
+			</navigator>
+		</block>
 
 
 	</view>
-
-
-
 </template>
 
 <script>
 	export default {
-		name: "tabbar2",
 		data() {
 			return {
-				fullPath: '',
-				// 普通用户
-				tabBar: {
-					"color": "#8f9198",
-					"selectedColor": "#9c528a",
-					"backgroundColor": "#fff",
-					"borderStyle": "#eee",
-					list: [{
-							"pagePath": "pages/index/index",
-							"text": "首页",
-							"iconPath": "../static/images/link-icon1.png",
-							"selectedIconPath": "../static/images/link-icon1-hover.png",
-							"clas": "menu-item",
-							// "active": true
-						},
-						{
-							"pagePath": "/pages/my/my",
-							"text": "我的",
-							"iconPath": "../static/images/link-icon2.png",
-							"selectedIconPath": "../static/images/link-icon2-hover.png",
-							"clas": "menu-item",
-							// "active": false
-						}
-					],
-					"position": "bottom",
-					"isIphoneX": false
-				},
-
+				tabList: [
+					{
+						icon: 'icon-emotion',
+						text: '首页',
+						"pagePath": "../index/index",
+					},
+					{
+						icon: 'icon-qianbao',
+						text: '我的',
+						"pagePath": "../my/my",
+					}
+				],
+				currentTabIndex: this.current
 			}
 		},
 		props: {
-			current: {
-				type: [Number, String],
-				default: 0
-			},
-			backgroundColor: {
-				type: String,
-				default: '#fbfbfb'
-			},
-			color: {
-				type: String,
-				default: '#999'
-			},
-			tintColor: {
-				type: String,
-				default: 'yellow'
-			}
+			current: { type: [Number, String], default: 0 },
+			backgroundColor: { type: String, default: '#fbfbfb' },
+			color: { type: String, default: '#999' },
+			tintColor: { type: String, default: '#42b983' }
 		},
 		methods: {
-			switchTab(index) {
-				this.currentTabIndex = index
-				this.$emit('click', index)
+			switchTab(index){
+				this.currentTabIndex = index;
+				// console.log(this.tabList[index].pagePath)
+				// uni.switchTab({
+				// 	url: this.tabList[index].pagePath
+				// })
+				this.$emit('click', index);
+				
+				console.log(index, "index");
 			}
 		},
-		onLoad() {
-			// console.log(this)
-			var _curPageArr = getCurrentPages();
-			this.fullPath = _curPageArr.[0].$page.fullPath;
-			
-						console.log(_curPageArr.[0].$page.fullPath);
-		}
 	}
 </script>
 
-<style lang="scss" scoped>
-	.tab-bar {
+<style scoped lang="scss">
+	.tab-bar-container {
 		position: fixed;
-		width: 100%;
 		left: 0;
 		bottom: 0;
-		navigator {
-			&.active {
-				background-color: red;
+		z-index: 999;
+		width: 100%;
+		height: 50px;
+		box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 50rpx;
+		box-sizing: border-box;
+		background-color: #fff;
+
+
+		.navigator {
+			height: 100%;
+			width: 80rpx;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+
+			.icon-style {
+				font-size: 20px;
+			}
+
+			/* 选中图标的高亮样式 */
+			.height-light {
+				background: linear-gradient(137deg, #507EFF 26%, #2A56F7 71%, #193EEE 100%);
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+
+			.text {
+				font-size: 24rpx;
+			}
+
+			.num-badge {
+				position: absolute;
+				top: 0;
+				right: -26rpx;
 			}
 		}
 	}

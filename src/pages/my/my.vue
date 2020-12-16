@@ -6,10 +6,10 @@
 			<p>关于我</p>
 		</view>
 
-		<headers title="关于我们" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#000" :GoBackWhite="false"></headers>
+		<headers title="我的" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#000" :GoBackWhite="false"></headers>
 
 
-	<tabbar2></tabbar2>
+		<tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2>
 	</view>
 </template>
 
@@ -36,14 +36,21 @@
 
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				// 当前tab高亮索引
+				currentTabIndex: 1
 			}
 		},
 		onLoad() {
-
+			uni.hideTabBar({
+				animation:false
+			})
 		},
 		methods: {
-
+			tabClick(index) {
+				console.log('返回tabBar索引：' + index)
+				this.currentTabIndex = index
+			},
 		}
 	}
 </script>
