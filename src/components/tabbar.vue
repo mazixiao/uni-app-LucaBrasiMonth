@@ -1,20 +1,22 @@
 <template>
-
 	<view>
-		<block v-for="(item,index) in tabList" :key="index">
-			<view class="navigator" :class="currentTabIndex == index ? 'on' : ''" @tap="switchTab(index)">
-				<view class="icon">
-					<text class="iconfont" :class="item.icon" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]"></text>
-					<text v-if="item.badge" class="uni_badge">{{item.badge}}</text>
-					<text v-if="item.badgeDot" class="uni_badge uni_badge_dot"></text>
+
+		<view class='tab-bar-container'>
+			<navigator class="navigator" :class="{'active': index == navActive}" v-for="(item, index) in navs" :key="item.url"
+			 open-type="switchTab" :url="item.url" hover-class="none">
+			
+
+
+				<view class="tabImage">
+					<image class="tabbarIcon" mode="aspectFill" :src="item.selectedIconPath" v-if="index == navActive"></image>
+					<image class="tabbarIcon" mode="aspectFill" :src="item.iconPath" v-else></image>
 				</view>
-				<view class="text" :style="[currentTabIndex == index ? {'color': tintColor} : {'color': color}]">{{item.text}}</view>
-			</view>
-		</block>
+				<view class="text">{{item.text}}</view>
+			</navigator>
+		</view>
+
+
 	</view>
-
-
-
 </template>
 
 <script>
@@ -22,55 +24,78 @@
 		name: "tabbar",
 		data() {
 			return {
-				tabList: [{
-						icon: 'icon-emotion',
-						text: 'tab01',
-						badge: 1
+				currentIndexNav: 0,
+				navs: [{
+						text: '首页',
+						url: '../index/index',
+						"iconPath": "/static/images/link-icon1.png",
+						"selectedIconPath": "/static/images/link-icon1-hover.png"
 					},
 					{
-						icon: 'icon-qianbao',
-						text: 'tab02',
+						text: '我的',
+						url: '../my/my',
+						"iconPath": "/static/images/link-icon2.png",
+						"selectedIconPath": "/static/images/link-icon2-hover.png"
 					},
-					{
-						icon: 'icon-choose01',
-						text: 'tab03',
-						badgeDot: true
-					}
-				],
-				currentTabIndex: this.current
+				]
 			}
 		},
 		props: {
-			current: {
-				type: [Number, String],
-				default: 0
-			},
-			backgroundColor: {
-				type: String,
-				default: '#fbfbfb'
-			},
-			color: {
-				type: String,
-				default: '#999'
-			},
-			tintColor: {
-				type: String,
-				default: 'yellow'
+			// 当前导航高亮
+			navActive: {
+				// 类型
+				type: Number,
+				// 默认值
+				value: 0
 			}
 		},
 		methods: {
-			switchTab(index) {
-				this.currentTabIndex = index
-				this.$emit('click', index)
-			}
+
 		},
 	}
 </script>
 
 <style lang="scss" scoped>
-	.navigator {
-		text {
-			background-color: yellow;
+	.tab-bar-container {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 999;
+		width: 100%;
+		height: 45px;
+		box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 5rpx;
+		box-sizing: border-box;
+		background-color: #fff;
+
+		.navigator {
+			height: 100%;
+			width: 50%;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			.tabImage {
+				font-size: 0;
+				image {
+					width: 22px;
+					height: 22px;
+				}
+			}
+			.text {
+				font-size: 24rpx;
+				color: #333;
+			}
+			&.active {
+				.text {
+					color: #9c528a;
+				}
+			}
 		}
 	}
 </style>

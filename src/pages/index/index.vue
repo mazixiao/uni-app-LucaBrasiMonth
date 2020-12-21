@@ -1,17 +1,17 @@
 <template>
 	<view class="content">
 		<!-- cnpm install node-sass 安装scss -->
-		<image class="logo" src="/static/logo.png"></image>
+		<image style="opacity: 0;" class="logo" src="/static/logo.png"></image>
 
 		<button form-type="submit" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取信息2</button>
 
 		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff"></headers>
-				<tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2>
+		<!-- <tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2> -->
 
-		<!-- <tabbar2></tabbar2> -->
-		
-		
-		<navigator open-type="switchTab" url="../my/my">我的</navigator>
+		<tabbar navActive='0'></tabbar>
+
+
+		<navigator open-type="switchTab" url="../my/my">跳转到我的</navigator>
 
 	</view>
 </template>
@@ -22,6 +22,7 @@
 
 	import tabBar from '../../components/tabbar.vue';
 	import tabbar2 from '../../components/tabbar2.vue';
+	import tabbar from '../../components/tabbar.vue';
 	// Vue.component('tab-bar', tabBar)
 
 	export default {
@@ -29,7 +30,8 @@
 		components: {
 			headers,
 			tabBar,
-			tabbar2
+			tabbar2,
+			tabbar,
 			// 当前tab高亮索引
 		},
 
@@ -41,7 +43,7 @@
 		onLoad() {
 
 			uni.hideTabBar({
-				animation:false
+				animation: false
 			})
 
 			// 更改顶部文字颜色

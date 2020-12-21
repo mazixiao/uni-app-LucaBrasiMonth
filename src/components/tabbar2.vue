@@ -23,11 +23,13 @@
 						icon: 'icon-emotion',
 						text: '首页',
 						"pagePath": "../index/index",
+						id: 0,
 					},
 					{
 						icon: 'icon-qianbao',
 						text: '我的',
 						"pagePath": "../my/my",
+						id: 1,
 					}
 				],
 				currentTabIndex: this.current
