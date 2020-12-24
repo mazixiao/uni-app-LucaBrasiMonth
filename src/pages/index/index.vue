@@ -1,17 +1,59 @@
 <template>
 	<view class="content">
-		<!-- cnpm install node-sass 安装scss -->
-		<image style="opacity: 0;" class="logo" src="/static/logo.png"></image>
-
-		<button form-type="submit" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取信息2</button>
-
 		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff"></headers>
-		<!-- <tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2> -->
-
 		<tabbar navActive='0'></tabbar>
 
 
-		<navigator open-type="switchTab" url="../my/my">跳转到我的</navigator>
+
+
+
+
+<!-- <view class="content {{isIphoneX_ ? 'isIphoneX_': ''}}"> -->
+<view class="content">
+  <image class="indexImg1" mode="" src='/static/images/index1.png'></image>
+  <view class="link-wrap">
+    <view class="item" bindtap="openLoginFun">
+      <image class="bg" mode="" src='/static/images/index2.png'></image>
+      <view class="item-con">
+          <image class="icon" mode="" src='/static/images/index3.png'></image>
+          <view class="cn">活动报名</view>
+          <view class="en">EVENT REGISTRATION</view>
+      </view>
+    </view>
+    <view class="item" bindtap="openLoginFun2">
+      <image class="bg" mode="" src='/static/images/index4.png'></image>
+      <view class="item-con">
+          <image class="icon" mode="" src='/static/images/index5.png'></image>
+          <view class="cn">报名记录</view>
+          <view class="en">REGISTRATION RECORD</view>
+      </view>
+    </view>
+  </view>
+
+
+<!-- <view class="isLogin" wx:if="{{isLogin}}">
+  <view class="isLogin-con">
+    <image class="closes" bindtap="closeLoginFun" mode="" src='../../images/close.png'></image>
+    <view class="login-text">
+      <view class="cn">请先去登录</view>
+      <view class="en">PLEASE LOG IN FIRST</view>
+    </view>
+    <view class="button-wrap">
+      <view class="button" bindtap="closeLoginFun">取消</view>
+      <view class="button goLogin" bindtap="goLoginFun">去登录</view>
+    </view>
+  </view>
+</view> -->
+
+
+</view>
+
+
+
+
+
+
+
 
 	</view>
 </template>
