@@ -15,8 +15,8 @@
 		<view class="content">
 			<image v-if="imgSrc" class="enterBg" mode="aspectFill" :src='imgSrc'></image>
 
-			<video v-if="videoSrc" :src="videoSrc" autoplay="{{true}}" loop="{{true}}" controls="{{false}}"
-			 enable-progress-gesture="{{false}}" object-fit="cover"></video>
+			<video v-if="videoSrc" :src="videoSrc" autoplay="true" loop="true" controls="false"
+			 enable-progress-gesture="false" object-fit="cover"></video>
 
 			<div class="bottom-info">
 				<button form-type='submit' @click="goIndex" class="button" value="点 击 开 启">点 击 开 启</button>
