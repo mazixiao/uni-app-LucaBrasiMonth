@@ -44,7 +44,7 @@
 				"selectedIconPath": "/static/images/link-icon1-hover.png"
 			},
 			{
-				"pagePath": "pages/face/face",
+				"pagePath": "pages/my/my",
 				"text": "人脸",
 				"iconPath": "/static/images/link-icon2.png",
 				"selectedIconPath": "/static/images/link-icon2-hover.png"

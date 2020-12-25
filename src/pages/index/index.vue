@@ -80,7 +80,8 @@
 
 		data() {
 			return {
-				currentTabIndex: 0
+				currentTabIndex: 0,
+				bar_Height: wx.getSystemInfoSync().statusBarHeight,
 			}
 		},
 		onLoad() {

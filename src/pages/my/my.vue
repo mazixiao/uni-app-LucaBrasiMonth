@@ -1,13 +1,15 @@
 <template>
 	<view class="content">
+
+
+		<headers title="我的" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#000" :GoBackWhite="false"></headers>
+		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
+
 		<image class="logo" src="/static/logo.png"></image>
 		<view>
 			<text class="title">{{title}}</text>
 			<p>关于我</p>
 		</view>
-
-		<headers title="我的" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#000" :GoBackWhite="false"></headers>
-		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 
 		<!-- 		<tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2> -->
 
@@ -42,7 +44,8 @@
 			return {
 				title: 'Hello',
 				// 当前tab高亮索引
-				currentTabIndex: 1
+				currentTabIndex: 1,
+				bar_Height: wx.getSystemInfoSync().statusBarHeight,
 			}
 		},
 		onLoad() {

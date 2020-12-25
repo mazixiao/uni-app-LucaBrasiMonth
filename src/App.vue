@@ -14,4 +14,7 @@
 
 <style>
 	/*每个页面公共css */
+	.aa {
+		width: 100%;
+	}
 </style>
