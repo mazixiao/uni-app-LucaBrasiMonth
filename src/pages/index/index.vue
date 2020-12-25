@@ -1,6 +1,7 @@
 <template>
 	<view class="content">
 		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff"></headers>
+		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 		<tabbar navActive='0'></tabbar>
 
 

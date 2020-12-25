@@ -7,11 +7,11 @@
 		</view>
 
 		<headers title="我的" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#000" :GoBackWhite="false"></headers>
+		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 
+		<!-- 		<tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2> -->
 
-<!-- 		<tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2> -->
-		
-				<tabbar navActive='1'></tabbar>
+		<tabbar navActive='1'></tabbar>
 	</view>
 </template>
 

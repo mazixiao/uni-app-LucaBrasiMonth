@@ -44,17 +44,11 @@
 				"selectedIconPath": "/static/images/link-icon1-hover.png"
 			},
 			{
-				"pagePath": "pages/my/my",
-				"text": "我的",
+				"pagePath": "pages/face/face",
+				"text": "人脸",
 				"iconPath": "/static/images/link-icon2.png",
 				"selectedIconPath": "/static/images/link-icon2-hover.png"
 			}
-
-
-
-
-
-
 		]
 	}
 
