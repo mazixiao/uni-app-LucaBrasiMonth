@@ -9,30 +9,30 @@
 
 
 
-<!-- <view class="content {{isIphoneX_ ? 'isIphoneX_': ''}}"> -->
-<view class="content">
-  <image class="indexImg1" mode="" src='/static/images/index1.png'></image>
-  <view class="link-wrap">
-    <view class="item" bindtap="openLoginFun">
-      <image class="bg" mode="" src='/static/images/index2.png'></image>
-      <view class="item-con">
-          <image class="icon" mode="" src='/static/images/index3.png'></image>
-          <view class="cn">活动报名</view>
-          <view class="en">EVENT REGISTRATION</view>
-      </view>
-    </view>
-    <view class="item" bindtap="openLoginFun2">
-      <image class="bg" mode="" src='/static/images/index4.png'></image>
-      <view class="item-con">
-          <image class="icon" mode="" src='/static/images/index5.png'></image>
-          <view class="cn">报名记录</view>
-          <view class="en">REGISTRATION RECORD</view>
-      </view>
-    </view>
-  </view>
+		<!-- <view class="content {{isIphoneX_ ? 'isIphoneX_': ''}}"> -->
+		<!-- <view class="content"> -->
+		<image class="indexImg1" mode="" src='/static/images/index1.png'></image>
+		<view class="link-wrap">
+			<view class="item" bindtap="openLoginFun">
+				<image class="bg" mode="" src='/static/images/index2.png'></image>
+				<view class="item-con">
+					<image class="icon" mode="" src='/static/images/index3.png'></image>
+					<view class="cn">活动报名</view>
+					<view class="en">EVENT REGISTRATION</view>
+				</view>
+			</view>
+			<view class="item" bindtap="openLoginFun2">
+				<image class="bg" mode="" src='/static/images/index4.png'></image>
+				<view class="item-con">
+					<image class="icon" mode="" src='/static/images/index5.png'></image>
+					<view class="cn">报名记录</view>
+					<view class="en">REGISTRATION RECORD</view>
+				</view>
+			</view>
+		</view>
 
 
-<!-- <view class="isLogin" wx:if="{{isLogin}}">
+		<!-- <view class="isLogin" wx:if="{{isLogin}}">
   <view class="isLogin-con">
     <image class="closes" bindtap="closeLoginFun" mode="" src='../../images/close.png'></image>
     <view class="login-text">
@@ -47,7 +47,7 @@
 </view> -->
 
 
-</view>
+		<!-- </view> -->
 
 
 
@@ -63,17 +63,14 @@
 	// import { Button, Tab, Tabs, List, Cell, Loading, Swipe, SwipeItem } from "vant";
 	import headers from "../../components/headers.vue";
 
-	import tabBar from '../../components/tabbar.vue';
-	import tabbar2 from '../../components/tabbar2.vue';
 	import tabbar from '../../components/tabbar.vue';
 	// Vue.component('tab-bar', tabBar)
 
+	let App = getApp()
 	export default {
 		name: "index",
 		components: {
 			headers,
-			tabBar,
-			tabbar2,
 			tabbar,
 			// 当前tab高亮索引
 		},
@@ -85,6 +82,9 @@
 			}
 		},
 		onLoad() {
+			//获取全局变量
+			console.log(App.globalData.test);
+			console.log(App.globalData.isIphoneX);
 
 			uni.hideTabBar({
 				animation: false

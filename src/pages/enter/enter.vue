@@ -1,17 +1,6 @@
 <template>
 	<view class="content">
 
-
-		<!-- <headers ></headers> -->
-
-
-		<!-- 		<tabbar2 :current="currentTabIndex" backgroundColor="#fbfbfb" color="#999" tintColor="#42b983" @click="tabClick"></tabbar2> -->
-
-		<!-- <tabbar navActive='1'></tabbar> -->
-
-
-		<!-- <headers title="" :show_logo="{true}" :show_title="false" :show_bol="true"></headers> -->
-
 		<view class="content">
 			<image v-if="imgSrc" class="enterBg" mode="aspectFill" :src='imgSrc'></image>
 
@@ -31,8 +20,6 @@
 
 <script>
 	import headers from "../../components/headers.vue";
-	import tabBar from '../../components/tabbar.vue';
-	import tabbar2 from '../../components/tabbar2.vue';
 	import tabbar from '../../components/tabbar.vue';
 
 
@@ -46,7 +33,6 @@
 		name: "enter",
 		components: {
 			headers,
-			tabbar2,
 			tabbar
 			// [Button.name]: Button,
 			// [Tab.name]: Tab,

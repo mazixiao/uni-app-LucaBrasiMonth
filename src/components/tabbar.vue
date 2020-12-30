@@ -1,10 +1,10 @@
 <template>
 	<view>
-
-		<view class='tab-bar-container'>
+<!-- <span v-bind:style="{'display':config.isHaveSearch ? 'block':'none'}" >搜索</span> -->
+		<view class='tab-bar-container' :style="{'height': isIphoneX ? '80px': '45px' }">
 			<navigator class="navigator" :class="{'active': index == navActive}" v-for="(item, index) in navs" :key="item.url"
 			 open-type="switchTab" :url="item.url" hover-class="none">
-			
+
 
 
 				<view class="tabImage">
@@ -20,6 +20,10 @@
 </template>
 
 <script>
+	let App = getApp();
+	
+	
+	
 	export default {
 		name: "tabbar",
 		data() {
@@ -37,7 +41,8 @@
 						"iconPath": "/static/images/link-icon2.png",
 						"selectedIconPath": "/static/images/link-icon2-hover.png"
 					},
-				]
+				],
+				isIphoneX: App.globalData.isIphoneX
 			}
 		},
 		props: {
@@ -48,6 +53,10 @@
 				// 默认值
 				value: 0
 			}
+		},
+		mounted() {
+			console.log(this.isIphoneX, "88");
+			console.log(1199)
 		},
 		methods: {
 
@@ -62,17 +71,18 @@
 		bottom: 0;
 		z-index: 999;
 		width: 100%;
-		height: 45px;
 		box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12);
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: space-between;
 		padding: 0 5rpx;
+		padding-top: 8rpx;
 		box-sizing: border-box;
 		background-color: #fff;
+		// background-color: red;
 
 		.navigator {
-			height: 100%;
+			// height: 100%;
 			width: 50%;
 			display: flex;
 			flex-wrap: wrap;
@@ -80,17 +90,21 @@
 			align-items: center;
 			justify-content: center;
 			position: relative;
+
 			.tabImage {
 				font-size: 0;
+
 				image {
 					width: 22px;
 					height: 22px;
 				}
 			}
+
 			.text {
 				font-size: 24rpx;
 				color: #333;
 			}
+
 			&.active {
 				.text {
 					color: #9c528a;
