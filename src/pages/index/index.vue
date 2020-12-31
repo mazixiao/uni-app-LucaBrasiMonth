@@ -13,7 +13,7 @@
 		<!-- <view class="content"> -->
 		<image class="indexImg1" mode="" src='/static/images/index1.png'></image>
 		<view class="link-wrap">
-			<view class="item" bindtap="openLoginFun">
+			<view class="item" @click="openLoginFun">
 				<image class="bg" mode="" src='/static/images/index2.png'></image>
 				<view class="item-con">
 					<image class="icon" mode="" src='/static/images/index3.png'></image>
@@ -21,7 +21,7 @@
 					<view class="en">EVENT REGISTRATION</view>
 				</view>
 			</view>
-			<view class="item" bindtap="openLoginFun2">
+			<view class="item" @click="openLoginFun2">
 				<image class="bg" mode="" src='/static/images/index4.png'></image>
 				<view class="item-con">
 					<image class="icon" mode="" src='/static/images/index5.png'></image>
@@ -32,19 +32,19 @@
 		</view>
 
 
-		<!-- <view class="isLogin" wx:if="{{isLogin}}">
-  <view class="isLogin-con">
-    <image class="closes" bindtap="closeLoginFun" mode="" src='../../images/close.png'></image>
-    <view class="login-text">
-      <view class="cn">请先去登录</view>
-      <view class="en">PLEASE LOG IN FIRST</view>
-    </view>
-    <view class="button-wrap">
-      <view class="button" bindtap="closeLoginFun">取消</view>
-      <view class="button goLogin" bindtap="goLoginFun">去登录</view>
-    </view>
-  </view>
-</view> -->
+		<view class="isLogin" v-if="isLogin">
+			<view class="isLogin-con">
+				<image class="closes" @click="closeLoginFun" mode="" src='/static/images/close.png'></image>
+				<view class="login-text">
+					<view class="cn">请先去登录</view>
+					<view class="en">PLEASE LOG IN FIRST</view>
+				</view>
+				<view class="button-wrap">
+					<view class="button" @click="closeLoginFun">取消</view>
+					<view class="button goLogin" @click="goLoginFun">去登录</view>
+				</view>
+			</view>
+		</view>
 
 
 		<!-- </view> -->
@@ -66,6 +66,9 @@
 	import tabbar from '../../components/tabbar.vue';
 	// Vue.component('tab-bar', tabBar)
 
+	const mdCode = require('../../utils/md5.js');
+	const desCode = require('../../utils/aesUtil.js');
+	const api_js = require("../../utils/api.js");
 	let App = getApp()
 	export default {
 		name: "index",
@@ -79,6 +82,13 @@
 			return {
 				currentTabIndex: 0,
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
+				userInfo: {},
+				hasUserInfo: false,
+				canIUse: wx.canIUse('button.open-type.getUserInfo'),
+				isIphoneX_: App.globalData.isIphoneX,
+				// 是否登录
+				isLogin: false,
+
 			}
 		},
 		onLoad() {
@@ -105,38 +115,80 @@
 			},
 
 
-			getuserinfo: function() {
-				// wx登录
-				wx.login({
-					success(res) {
-						if (res.code) {
-							//发起网络请求
-							var code = res.code
-							// 获取微信用户信息
-							wx.getUserInfo({
-								success: function(res) {
-									var userInfo = res.userInfo
-									var nickName = userInfo.nickName
-									var avatarUrl = userInfo.avatarUrl
-									var gender = userInfo.gender //性别 0：未知、1：男、2：女
-									var province = userInfo.province
-									var city = userInfo.city
-									var country = userInfo.country
-								},
-								fail: res => {
-									// 获取失败的去引导用户授权 
-								}
-							})
+			// getuserinfo: function() {
+			// 	// wx登录
+			// 	wx.login({
+			// 		success(res) {
+			// 			if (res.code) {
+			// 				//发起网络请求
+			// 				var code = res.code
+			// 				// 获取微信用户信息
+			// 				wx.getUserInfo({
+			// 					success: function(res) {
+			// 						var userInfo = res.userInfo
+			// 						var nickName = userInfo.nickName
+			// 						var avatarUrl = userInfo.avatarUrl
+			// 						var gender = userInfo.gender //性别 0：未知、1：男、2：女
+			// 						var province = userInfo.province
+			// 						var city = userInfo.city
+			// 						var country = userInfo.country
+			// 					},
+			// 					fail: res => {
+			// 						// 获取失败的去引导用户授权 
+			// 					}
+			// 				})
 
-						} else {
+			// 			} else {
 
-						}
-					}
-				})
+			// 			}
+			// 		}
+			// 	})
+			// },
+
+
+
+			openLoginFun() {
+				if (App.globalData.LoginStatus == 1) {
+					this.isLogin = true;
+				} else {
+					this.closeLoginFun();
+					uni.navigateTo({
+						url: '../apply/apply'
+					})
+				}
+			},
+
+			openLoginFun2() {
+				if (App.globalData.LoginStatus == 1) {
+					this.isLogin = true;
+				} else {
+					this.closeLoginFun();
+					uni.navigateTo({
+						url: '../applyList/applyList'
+					})
+				}
 			},
 
 
+			closeLoginFun() {
+				this.isLogin = false;
+			},
+
+			goLoginFun() {
+				this.closeLoginFun();
+				uni.navigateTo({
+					url: '../login/login'
+				})
+			},
+			
 		},
+		
+		
+		
+		onHide() {
+		 this.closeLoginFun();
+		},
+		
 
 		/**
 		 * 用户点击右上角分享

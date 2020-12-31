@@ -1,11 +1,11 @@
 
 
 // 正式
-var rootDocment = 'https://yuanyueapi.yinchtv.com/Tran.aspx?';
+// var rootDocment = 'https://yuanyueapi.yinchtv.com/Tran.aspx?';
 // 测试
-// var rootDocment = 'http://yuanyuetestapi.yinchtv.com/Tran.aspx?';
+var rootDocment = 'http://yuanyuetestapi.yinchtv.com/Tran.aspx?';
 // var rootDocment = 'http://10.0.120.57:2147/Tran.aspx'; 
- //var rootDocment = 'http://10.0.38.226:2147/Tran.aspx';
+ // var rootDocment = 'http://10.0.39.3:2147/Tran.aspx';
 
 var that = this;
 

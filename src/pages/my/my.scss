@@ -1,25 +1,188 @@
+/* pages/my/my.wxss *//* pages/apply/apply.wxss */
+
+
 .content {
+  background-color: rgba(246,246,246, 1);
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.content .my-top {
+  position: relative;
+}
+
+.content .my-top .applyImg {
+  width: 750rpx;
+  height: 512rpx;
+  vertical-align: top;
+}
+
+.content .my-top .introduct {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* width: 100%; */
+  text-align: center;
+  bottom: 40rpx;
+  z-index: 1;
+  background-color: transparent;
+  padding: 0;
+}
+
+.content .my-top .introduct .myImg {
+  width: 168rpx;
+  height: 168rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.content .my-top .introduct .text {
+  font-size: 30rpx;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  line-height: 44rpx;
+  margin-top: 20rpx;
+}
+
+.content .btns {
+  padding-top: 150rpx;
+  width: 642rpx;
+  margin: 0 auto;
+}
+
+.content .btns.active {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 260rpx;
+}
+
+.content .btns .btn1 {
+  width: 642rpx;
+  height: 104rpx;
+  background: #d7778c;
+  border-radius: 52rpx;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: yellow;
-  .logo {
-    height: 200rpx;
-    width: 200rpx;
-    margin: 200rpx auto 50rpx auto;
-  }
+  margin-bottom: 40rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  /* line-height: 42rpx; */
+
+}
+
+.content .btns .btn2 {
+  width: 642rpx;
+  height: 94rpx;
+  background: linear-gradient(297deg,#c099bd -41%, #9c528a 1%, #da7b8d 1%, #af588a 42%);
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  /* line-height: 44rpx; */
+}
+
+.content .btns .btn2.exit {
+  background: #cacaca;
 }
 
 
 
 
-.text-area {
+
+.isLogin {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.isLogin  .isLogin-con {
+  width: 540rpx;
+  height: 316rpx;
+  background: #ffffff;
+  border-radius: 6rpx;
+  position: relative;
+  /* filter: blur(20rpx); */
+}
+
+.isLogin .isLogin-con .closes {
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  z-index: 1;
+}
+
+.isLogin  .isLogin-con .login-text {
+  padding-top: 83rpx;
+}
+
+.isLogin  .isLogin-con .login-text .cn {
+  font-size: 32rpx;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  text-align: center;
+  color: #394042;
+  line-height: 34rpx;
+  letter-spacing: 0rpx;
+}
+
+.isLogin  .isLogin-con .login-text .en {
+  font-size: 20rpx;
+  font-family: 'Didot-bold';
+  text-align: center;
+  color: #394042;
+  line-height: 28rpx;
+  letter-spacing: 0rpx;
+  margin-top: 10rpx;
+}
+
+.isLogin  .isLogin-con .button-wrap {
+  margin-top: 34rpx;
   display: flex;
   justify-content: center;
 }
 
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
+.isLogin  .isLogin-con .button-wrap .button {
+  width: 218rpx;
+  height: 80rpx;
+  background: #cacaca;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  font-size: 32rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: center;
+  color: #f7f7f7;
+}
+
+.isLogin  .isLogin-con .button-wrap .button.goLogin {
+  margin-left: 18rpx;
+  font-size: 32rpx;
+  color: #ffffff;
+  background: linear-gradient(270deg,#9c528a, #d7778c);
 }

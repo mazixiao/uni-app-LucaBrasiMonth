@@ -27,14 +27,13 @@
 	const mdCode = require('../../utils/md5.js');
 	const desCode = require('../../utils/aesUtil.js');
 	const api_js = require("../../utils/api.js");
-
+	let App = getApp()
 	export default {
 
 		name: "enter",
 		components: {
 			headers,
 			tabbar
-			// [Button.name]: Button,
 			// [Tab.name]: Tab,
 			// [Tabs.name]: Tabs,
 			// [List.name]: List,

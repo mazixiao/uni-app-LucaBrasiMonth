@@ -17,6 +17,28 @@
 			"path": "pages/my/my",
 			"style": {
 				"navigationBarTitleText": "我的"
+			},
+			"usingComponents": {
+				"van-toast": "/wxcomponents/vant/dist/Toast/index",
+				"van-button": "/wxcomponents/vant/dist/button/index"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/apply/apply",
+			"style": {
+				"navigationBarTitleText": "apply"
+			}
+		},
+		{
+			"path": "pages/applyList/applyList",
+			"style": {
+				"navigationBarTitleText": "applyList"
 			}
 		}
 

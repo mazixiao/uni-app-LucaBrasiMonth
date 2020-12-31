@@ -1,0 +1,148 @@
+/* pages/login/login.wxss */
+
+
+.content {
+  padding-top: 316rpx;
+}
+
+.content .login-text {
+  text-align: center;
+}
+
+.content .login-text .login-text {
+  width: 460rpx;
+  height: 164rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.content .section {
+  width: 638rpx;
+  margin: 0 auto;
+  margin-top: 132rpx;
+}
+
+.content .section .form {
+
+}
+
+.content .section .form .inputs {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.content .section .form .inputs .input-wrap {
+  width: 100%;
+  position: relative;
+  /* margin-bottom: 50rpx; */
+}
+.content .section .form .inputs .input-wrap:last-child {
+  /* margin-bottom: 0; */
+}
+
+
+.content .section .form .inputs .input-wrap input {
+  width: 100%;
+  height: 96rpx;
+  background: #ffffff;
+  border-radius: 48rpx;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238,191,204,0.36); 
+  padding-left: 100rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #8f9198;
+}
+
+.content .section .form .inputs .input-wrap .icon {
+  width: 56rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 28rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content .section .form .inputs .input-wrap .send {
+  width: 164rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: linear-gradient(270deg,#9c528a, #d7778c);
+  border: 0rpx solid #c86b6e;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 28rpx;
+  z-index: 2;
+}
+
+.content .section .form .inputs .input-wrap .send.active {
+  background: #DBDBDB !important;
+  border-color: #DBDBDB !important;
+}
+
+.content .section .form .inputs .error {
+  font-size: 24rpx;
+  font-family: PingFangSC, PingFangSC-Light;
+  font-weight: 300;
+  text-align: right;
+  color: #e84135;
+  line-height: 34rpx;
+  margin-top: 4rpx;
+  margin-bottom: 12rpx;
+  opacity: 0;
+}
+
+.content .section .form .inputs .error.active {
+  opacity: 1;
+}
+
+
+.content .section .form .loginBtn {
+  width: 100%;
+  height: 94rpx;
+  background: linear-gradient(135deg,#bc6189 17%, #dd7c8d 34%, #9d528a 76%, #d5bad3 94%);
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .support {
+  width: 100%;
+  font-size: 20rpx;
+  font-family: PingFangSC, PingFangSC-Light;
+  font-weight: 300;
+  text-align: center;
+  color: #8f9198;
+  line-height: 28rpx;
+  position: absolute;
+  left: 0;
+  bottom: 48rpx;
+}
+
+
+
+
+.textssss {
+  font-family: 'Didot';
+}
+
+.textssss22 {
+  font-family: 'Didot-italic';
+}
+
+
+
