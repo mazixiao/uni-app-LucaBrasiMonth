@@ -67,7 +67,7 @@
 			},
 			{
 				"pagePath": "pages/my/my",
-				"text": "人脸",
+				"text": "我的",
 				"iconPath": "/static/images/link-icon2.png",
 				"selectedIconPath": "/static/images/link-icon2-hover.png"
 			}

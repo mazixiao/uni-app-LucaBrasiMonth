@@ -8,7 +8,7 @@
 			 enable-progress-gesture="false" object-fit="cover"></video>
 
 			<div class="bottom-info">
-				<button form-type='submit' @click="goIndex" class="button" value="点 击 开 启">点 击 开 启</button>
+				<button form-type='submit' @click="goIndex" class="button" value="点 击 开 启">点 击 开 启(uni)</button>
 				<view class="support">深圳银创网络科技提供技术支持</view>
 			</div>
 		</view>

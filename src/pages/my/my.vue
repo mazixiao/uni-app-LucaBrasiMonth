@@ -9,7 +9,7 @@
 			<view class="my-top">
 				<image class="applyImg" mode="" src='/static/images/my1.png'></image>
 				<!-- 未登录 -->
-				<button class="introduct" v-if="!headPortrait" open-type="getUserInfo" @getuserinfo="bindGetUserInfo"
+				<button class="introduct" v-if="!headportrait" open-type="getUserInfo" @getuserinfo="bindGetUserInfo"
 				 withCredentials="true">
 
 					<!-- <button class='testbutton' open-type="getUserInfo" @getuserinfo="getuserinfo" withCredentials="true"> -->
@@ -17,18 +17,14 @@
 					<view class="text">点击获取头像</view>
 				</button>
 				<!-- 已经登录 -->
-				<view class="introduct" v-if="headPortrait">
-					<image class="myImg" mode="" src='headPortrait'></image>
+				<view class="introduct" v-if="headportrait">
+					<image class="myImg" mode="" :src='headportrait'></image>
 					<view class="text">{{nickName}}</view>
 				</view>
 			</view>
-			<!-- <view class="btns {{status == 2 ? 'active': ''}}"> -->
+
 			<view :class="['btns', {'active': status == 2}]">
 				<view class="btn1" v-if="status == 1" @click="checkStateFun">查看签到状态</view>
-				<!-- 				<view :class="['btn2', {'exit': exit}]" bindtap="{{exit ? 'exitLoginFun' : 'LoginFun'}}">
-					{{exit ? '退出登录' : '登录'}}
-				</view> -->
-
 				<view :class="['btn2', {'exit': exit}]" v-if="exit" @click="exitLoginFun">退出登录</view>
 				<view :class="['btn2', {'exit': exit}]" v-else @click="LoginFun">登录</view>
 
@@ -49,7 +45,7 @@
 		</view>
 
 
-		<van-button>666</van-button>
+		<!-- <van-button>666</van-button> -->
 
 	</view>
 </template>
@@ -97,7 +93,6 @@
 				headportrait: "",
 				// 身份
 				status: 1,
-
 			}
 		},
 		onLoad() {
@@ -114,14 +109,15 @@
 			// }
 
 			if (App.globalData.LoginStatus == 0) {
-				this.exit = true;				
+				this.exit = true;
 				this.nickName = App.globalData.UserName;
-				this.headPortrait = App.globalData.HeadPortrait;
+				this.headportrait = App.globalData.HeadPortrait;
 				this.status = App.globalData.Status;
-
 			} else {
 				this.exit = false;
-			}
+			};
+
+
 
 
 
@@ -316,12 +312,6 @@
 
 								App.globalData.UserName = res.Data[0].nlikename;
 								App.globalData.HeadPortrait = res.Data[0].headportrait;
-
-
-								// this.setData({
-								//   nickName: App.globalData.UserName,
-								//   headPortrait: App.globalData.HeadPortrait,
-								// });
 								this.nickName = App.globalData.UserName;
 								this.headPortrait = App.globalData.HeadPortrait;
 

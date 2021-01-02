@@ -1,16 +1,9 @@
 <template>
 	<view class="content">
+		
 		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff"></headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 		<tabbar navActive='0'></tabbar>
-
-
-
-
-
-
-		<!-- <view class="content {{isIphoneX_ ? 'isIphoneX_': ''}}"> -->
-		<!-- <view class="content"> -->
 		<image class="indexImg1" mode="" src='/static/images/index1.png'></image>
 		<view class="link-wrap">
 			<view class="item" @click="openLoginFun">
@@ -30,8 +23,6 @@
 				</view>
 			</view>
 		</view>
-
-
 		<view class="isLogin" v-if="isLogin">
 			<view class="isLogin-con">
 				<image class="closes" @click="closeLoginFun" mode="" src='/static/images/close.png'></image>
@@ -45,17 +36,6 @@
 				</view>
 			</view>
 		</view>
-
-
-		<!-- </view> -->
-
-
-
-
-
-
-
-
 	</view>
 </template>
 

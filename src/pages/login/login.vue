@@ -1,13 +1,7 @@
 <template>
 	<view>
 
-
 		<headers title="登录" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#000" :GoBackWhite="false"></headers>
-
-
-
-
-
 		<view class="content">
 			<view class="login-text">
 				<image style="" class="login-text" mode="" src='/static/images/login1.png'></image>
@@ -21,30 +15,20 @@
 							<image class="icon" mode="" src='/static/images/login-icon1.png'></image>
 						</view>
 						<view :class="['error', {'active': errorPhone}]">*请输入正确手机号</view>
-
 						<view class="input-wrap">
 							<input type="number" placeholder-style="color: #8f9198;" placeholder="请输入邀请码" v-model.trim='inviteCode' @input="checkInviteCode(inviteCode)"
 							 maxlength="11" />
 							<image class="icon" mode="" src='/static/images/login-icon2.png'></image>
 						</view>
 						<view :class="['error', {'active': errorInviteCode}]">*请输入正确邀请码</view>
-
-
 						<view class="input-wrap">
 							<input type="number" placeholder-style="color: #8f9198;" placeholder="请输入短信验证码" v-model.trim='noteCode' @input="checkNoteCode(noteCode)"
 							 maxlength="6" />
 							<image class="icon" mode="" src='/static/images/login-icon3.png'></image>
-
 							<view :class="['send', {'active': get_code_color}]" @click="sendCodeFun">{{show_get_code}}</view>
-							
-							
-<!-- 					 <view class="send {{get_code_color ? 'active' : ''}}" bindtap="sendCodeFun">{{show_get_code}}</view>	 -->	
-							
 						</view>
-
 						<view :class="['error', {'active': errorNoteCode}]">*请输入正确验证码</view>
 					</view>
-
 					<button class="loginBtn" form-type="submit">登录</button>
 				</form>
 			</view>

@@ -30,7 +30,7 @@
 		onLaunch: function() {
 			console.log('App Launch');
 			//获取全局变量
-			console.log(this.$options.globalData.test);
+			// console.log(this.$options.globalData, "全局变量");
 
 			wx.getSystemInfo({
 				success: (res) => {

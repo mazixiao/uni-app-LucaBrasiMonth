@@ -1,12 +1,8 @@
 <template>
 	<view>
-<!-- <span v-bind:style="{'display':config.isHaveSearch ? 'block':'none'}" >搜索</span> -->
 		<view class='tab-bar-container' :style="{'height': isIphoneX ? '80px': '45px' }">
 			<navigator class="navigator" :class="{'active': index == navActive}" v-for="(item, index) in navs" :key="item.url"
 			 open-type="switchTab" :url="item.url" hover-class="none">
-
-
-
 				<view class="tabImage">
 					<image class="tabbarIcon" mode="aspectFill" :src="item.selectedIconPath" v-if="index == navActive"></image>
 					<image class="tabbarIcon" mode="aspectFill" :src="item.iconPath" v-else></image>
@@ -14,9 +10,9 @@
 				<view class="text">{{item.text}}</view>
 			</navigator>
 		</view>
-
-
 	</view>
+	
+	
 </template>
 
 <script>
@@ -30,13 +26,13 @@
 			return {
 				currentIndexNav: 0,
 				navs: [{
-						text: '首页',
+						text: '首页(uni)',
 						url: '../index/index',
 						"iconPath": "/static/images/link-icon1.png",
 						"selectedIconPath": "/static/images/link-icon1-hover.png"
 					},
 					{
-						text: '我的',
+						text: '我的(uni)',
 						url: '../my/my',
 						"iconPath": "/static/images/link-icon2.png",
 						"selectedIconPath": "/static/images/link-icon2-hover.png"

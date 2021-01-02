@@ -20,6 +20,8 @@
 			</view>
 		</view>
 	</view>
+
+
 </template>
 
 <script>
@@ -29,21 +31,21 @@
 			return {
 				// type: "组件",
 				// 获取手机状态栏高度
-				bar_Height: wx.getSystemInfoSync().statusBarHeight,	
+				bar_Height: wx.getSystemInfoSync().statusBarHeight,
 				// bar_Height: 100,
 			};
 		},
-		
-		
-		  // props: {
-		  //   duration: {
-		  //      type: Number,
-		  //      default: 3,
-		  //   }
-		  // }
-		
-		
-		
+
+
+		// props: {
+		//   duration: {
+		//      type: Number,
+		//      default: 3,
+		//   }
+		// }
+
+
+
 		props: { //此处定义传入的参数
 
 
@@ -128,87 +130,85 @@
 
 
 <style>
-	
 	/* 顶部导航 */
-	
+
 	.status-bar {
-	  width: 100%;
-	  z-index: 15;
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  display: flex;
-	  align-items: center;
-	  background: transparent;
-	  height: 65px;
-	}
-	
-	.tabar {
-	  width: 100%;
-	  color: #000;
-	  text-align: center;
-	  height: 44px;
-	  position: relative;
-	  box-sizing: content-box;
-	}
-	
-	
-	.textView {
-	  height: 44px;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	}
-	.tabar text {
-	  color: #000;
-	  font-size: 34rpx;
-	  font-family: PingFangSC, PingFangSC-Medium;
-	  font-weight: 500;
-	}
-	.goBack {
-	  position: absolute;
-	  bottom: 0;
-	  left: 20rpx;
-	  width: 134rpx;
-	  height: 64rpx;
-	  background: rgba(255, 255, 255, 0.6);
-	  border-radius: 32rpx;
-	  border: 1rpx solid rgba(0, 0, 0, 0.08);
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-around;
-	  padding: 0 20rpx;
-	}
-	
-	
-	
-	.GoBack {
-	  position: absolute;
-	  bottom: 0;
-	  left: 12rpx;
-	  width: 134rpx;
-	  height: 44px;
-	  /* background: rgba(255, 255, 255, 0.6); */
-	  border-radius: 32rpx;
-	  text-align: left;
-	  padding: 0 20rpx;
-	  display: flex;
-	  align-items: center;
-	  /* justify-content: center; */
-	}
-	
-	.GoBack.GoBackWhite {
-	  background: transparent;
-	}
-	
-	
-	.xian {
-	  width: 2rpx;
-	  height: 37rpx;
-	  background: rgba(0, 0, 0, 1);
-	  opacity: 0.2;
+		width: 100%;
+		z-index: 15;
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		background: transparent;
+		height: 65px;
 	}
 
-	
-	
+	.tabar {
+		width: 100%;
+		color: #000;
+		text-align: center;
+		height: 44px;
+		position: relative;
+		box-sizing: content-box;
+	}
+
+
+	.textView {
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.tabar text {
+		color: #000;
+		font-size: 34rpx;
+		font-family: PingFangSC, PingFangSC-Medium;
+		font-weight: 500;
+	}
+
+	.goBack {
+		position: absolute;
+		bottom: 0;
+		left: 20rpx;
+		width: 134rpx;
+		height: 64rpx;
+		background: rgba(255, 255, 255, 0.6);
+		border-radius: 32rpx;
+		border: 1rpx solid rgba(0, 0, 0, 0.08);
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding: 0 20rpx;
+	}
+
+
+
+	.GoBack {
+		position: absolute;
+		bottom: 0;
+		left: 12rpx;
+		width: 134rpx;
+		height: 44px;
+		/* background: rgba(255, 255, 255, 0.6); */
+		border-radius: 32rpx;
+		text-align: left;
+		padding: 0 20rpx;
+		display: flex;
+		align-items: center;
+		/* justify-content: center; */
+	}
+
+	.GoBack.GoBackWhite {
+		background: transparent;
+	}
+
+
+	.xian {
+		width: 2rpx;
+		height: 37rpx;
+		background: rgba(0, 0, 0, 1);
+		opacity: 0.2;
+	}
 </style>
