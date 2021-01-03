@@ -38,7 +38,8 @@
 		{
 			"path": "pages/applyList/applyList",
 			"style": {
-				"navigationBarTitleText": "applyList"
+				"navigationBarTitleText": "applyList",
+				"onReachBottomDistance":100 //距离底部多远时触发 单位px
 			}
 		}
 

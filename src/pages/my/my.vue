@@ -4,7 +4,7 @@
 
 		<headers title="我的" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#000" :GoBackWhite="false"></headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
-
+		<tabbar navActive='1'></tabbar>
 		<view :class="['content', {'isIphoneX_': isIphoneX_}]">
 			<view class="my-top">
 				<image class="applyImg" mode="" src='/static/images/my1.png'></image>

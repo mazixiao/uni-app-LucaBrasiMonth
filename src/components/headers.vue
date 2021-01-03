@@ -1,6 +1,6 @@
 <template name="headers">
 
-	<view class='status-bar' :style="{'backgroundColor': backgroundColor,height: (bar_Height + 44) + 'px'}">
+	<view class='status-bar' :style="{'background': backgroundColor,height: (bar_Height + 44) + 'px'}">
 
 		<view class="tabar" :style="{'padding-top': bar_Height + 'px'}" v-show="!show_title">
 			<view class="textView">
