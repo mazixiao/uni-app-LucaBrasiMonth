@@ -1,16 +1,6 @@
 <template>
 	<view class="">
-
-
 		<headers title="活动报名" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true"></headers>
-		<!-- <view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view> -->
-
-
-
-
-
-		<!-- 		<header title="活动报名" show_logo="{{true}}" show_bol="{{false}}" show_title="{{true}}" titleColor="#fff" GoBackWhite="{{true}}"></header> -->
-
 		<view :class="['content', {'isIphoneX_': isIphoneX_}]">
 			<view class="apply-top">
 				<image class="applyImg" mode="" src='/static/images/apply1.png'></image>
@@ -20,8 +10,6 @@
 					<view class="en-small">TO BE A CONFIDENT BEAUTIFUL WOMAN</view>
 				</view>
 			</view>
-
-
 			<view class="form-wrap">
 				<form @submit="formSubmit" class='form'>
 					<view class="inputs">
@@ -50,7 +38,6 @@
 							</view>
 					</view>
 					<button form-type='submit' class="commitBtn">提 交</button>
-					<!-- <button class="loginBtn" form-type="submit">登录</button> -->
 				</form>
 			</view>
 
@@ -68,7 +55,6 @@
 					</view>
 					<!-- 选择区域 -->
 					     <scroll-view class="tabelView" scroll-y="true">
-							 <!-- "register {{house == index ? 'active': ''}}" -->
         <view :class="['register', {'active': house == index}]" v-for='(item, index) in houseList2' :key="id" @click="activeVenueFun(index)">
           <view class="text">{{item.tile}}</view>
           <image class="itmeSelectImage" src="/static/images/gou.png"></image>
@@ -76,9 +62,6 @@
       </scroll-view>
 				</view>
 			</view>
-
-
-
 		</view>
 
 
@@ -173,15 +156,9 @@
 			// 姓名验证
 			checkName(value) {
 				if (value == '') {
-					// this.setData({
-					// 	errorName: true
-					// });
 					this.errorName = true;
 					return false;
 				} else {
-					// this.setData({
-					// 	errorName: false
-					// });
 					this.errorName = false;
 					return true;
 				}
@@ -191,15 +168,9 @@
 			checkPhoness(phone) {
 
 				if (!/^1[34578]\d{9}$/.test(phone)) {
-					// this.setData({
-					// 	errorPhone: true
-					// });
 					this.errorPhone = true;
 					return false;
 				} else {
-					// this.setData({
-					// 	errorPhone: false
-					// });
 					this.errorPhone = false;
 					return true;
 				}
@@ -212,17 +183,11 @@
 				if (!/^1[34578]\d{9}$/.test(phone)) {
 
 					if (phone.length == 0 || phone.length == 11) {
-						// this.setData({
-						// 	errorPhone: true
-						// });
 						this.errorPhone = true;
 						return false;
 					}
 
 				} else {
-					// this.setData({
-					// 	errorPhone: false
-					// });
 					this.errorPhone = false;
 					return true;
 				}
@@ -234,16 +199,9 @@
 			// 日期验证
 			checkDate(value) {
 				if (value == '') {
-					// this.setData({
-					// 	errorDate: true
-					// });
-
 					this.errorDate = true;
 					return false;
 				} else {
-					// this.setData({
-					// 	errorDate: false
-					// });
 					this.errorDate = false;
 					return true;
 				}
@@ -253,81 +211,17 @@
 			// 会场验证
 			checkHouse(value) {
 				if (value == -1) {
-					// this.setData({
-					// 	errorHouse: true
-					// });
 					this.errorHouse = true;
 					return false;
 				} else {
-					// this.setData({
-					// 	errorHouse: false
-					// });
 					this.errorHouse = false;
 					return true;
 				}
 			},
 
 
-
-			// // 赋值和判断(手机号)
-			// phoneFun(e) {
-			// 	this.setData({
-			// 		phone: e.detail.value.replace(/\s+/g, '')
-			// 	});
-			// 	this.checkPhoness2(this.data.phone);
-			// 	console.log(this.data.phone)
-			// },
-
-
-			// // 赋值和判断(姓名)
-			// nameFun(e) {
-			// 	this.setData({
-			// 		name: e.detail.value.replace(/\s+/g, '')
-			// 	});
-			// 	this.checkName(this.data.name);
-			// 	console.log(this.data.name)
-			// },
-
-
-			// // 日期组件
-			// bindDateChange(e) {
-			// 	console.log('picker发送选择改变，携带值为', e.detail.value)
-			// 	this.setData({
-			// 		date: e.detail.value
-			// 	});
-			// 	this.checkDate(this.data.date);
-			// 	console.log(this.data.date)
-			// },
-
-
-			// // 会场组件
-			// // https://www.jb51.net/article/157716.htm
-			// bindHouseChange(e) {
-			// 	console.log('picker发送选择改变，索引值为', e.detail.value)
-			// 	console.log(e);
-			// 	this.setData({
-			// 		house: e.detail.value
-			// 	});
-			// 	this.checkHouse(this.data.house);
-
-			// 	console.log(this.data.houseList2[this.data.house].name, "999")
-			// },
-
-
-			// // 赋值和判断(手机号)
-			// remarkFun(e) {
-			// 	this.setData({
-			// 		remark: e.detail.value.replace(/\s+/g, '')
-			// 	});
-			// 	console.log(this.data.remark)
-			// },
-
-			// // 会场赋值
+			// 会场赋值
 			activeVenueFun(index) {
-				// this.setData({
-				// 	house: e.currentTarget.dataset.index,
-				// 	activeVenueShow: false,
-				// });
 				this.house = index;
 				this.activeVenueShow = false;
 				this.checkHouse(this.house);
@@ -336,18 +230,11 @@
 			// 显示会场弹层
 			activeVenueShowFun() {
 				this.applyListFun();
-				// this.setData({
-				// 	activeVenueShow: true,
-				// });
 				this.activeVenueShow = true;
 			},
 
 
 			cancel() {
-				// this.setData({
-				// 	activeVenueShow: false,
-				// });
-
 				this.activeVenueShow = false;
 			},
 
@@ -369,7 +256,7 @@
 					let participantstime = this.houseList2[this.house].starttime;
 					let meetingplace = this.houseList2[this.house].id;
 					let remark = this.remark;
-					let createuserid = app.globalData.UserID;
+					let createuserid = App.globalData.UserID;
 					var wMsgID = desCode.wMsgID();
 					var wParam = desCode.to3des(
 						`name=${name}_phone=${phone}_participantstime=${participantstime}_meetingplace=${meetingplace}_remark=${remark}_createuserid=${createuserid}`
@@ -405,6 +292,12 @@
 							console.log(name, "name");
 							console.log(meetingplace, "meetingplace");
 							console.log(participantstime, "participantstime");
+							uni.showToast({
+								title: '报名成功',
+								icon: 'none',
+								duration: 1500,
+								mask: true,
+							})
 
 							setTimeout(() => {
 

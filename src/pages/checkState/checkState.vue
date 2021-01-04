@@ -2,7 +2,7 @@
 	<view>
 
 
-		<headers title="活动报名" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true"
+		<headers title="签到状态" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true"
 		 :backgroundColor="'linear-gradient(135deg,#9c528a, #d7778c 99%)'"></headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 
@@ -60,7 +60,7 @@
 	let App = getApp()
 	export default {
 
-		name: "applyList",
+		name: "checkState",
 		components: {
 			headers,
 			tabbar
@@ -150,13 +150,18 @@
 
 
 					wx.navigateTo({
-						url: `../QRCode/QRCode?barcode=${barcode}&barcodeimg=${barcodeimg}&barstatus=${barstatus}&name=${name}&meetingplace=${meetingplace}&participantstime=${participantstime}&logo=${logo}`
+						url: `../checkInDetail/checkInDetail?customerid=${customerid}&barcode=${barcode}`
 					})
 
 
 				})
 
 			},
+			
+			
+
+			
+			
 
 
 
@@ -249,5 +254,5 @@
 </script>
 
 <style lang="scss" scoped>
-	@import 'applyList.scss';
+	@import 'checkState.scss';
 </style>

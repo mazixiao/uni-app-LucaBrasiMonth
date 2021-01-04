@@ -148,6 +148,8 @@
 
 <style>
 	/*每个页面公共css */
+	/* vant */
+	@import "/wxcomponents/vant/dist/common/index.wxss";
 	.aa {
 		width: 100%;
 	}

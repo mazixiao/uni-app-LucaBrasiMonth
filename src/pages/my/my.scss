@@ -27,7 +27,9 @@
   z-index: 1;
   background-color: transparent;
   padding: 0;
+  outline: none;
 }
+.content .my-top .introduct::after{ border: none; }
 
 .content .my-top .introduct .myImg {
   width: 168rpx;

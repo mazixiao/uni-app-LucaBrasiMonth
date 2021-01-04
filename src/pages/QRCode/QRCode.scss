@@ -1,0 +1,234 @@
+/* pages/QRCode/QRCode.wxss *//* pages/applyList/applyList.wxss *//* pages/apply/apply.wxss */
+
+
+page {
+
+background: #f7f7f7;
+/* background-color: red; */
+}
+
+.page {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-bottom: 100rpx;
+}
+
+.QRCode-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  /* background-color: #fff;
+  min-height: 100vh;
+  padding-top: 110rpx;
+  padding-bottom: 40rpx; */
+
+  padding-top: 40rpx;
+
+
+}
+
+.content.isIphoneX_ {
+  /* padding-bottom: 90rpx; */
+}
+
+
+.content .bottom-info {
+  /* width: 558rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 188rpx;
+  z-index: 2; */
+  width: 672rpx;
+  margin: 0 auto;
+  /* background-color: red; */
+}
+
+.content .bottom-info .error {
+
+  font-size: 26rpx;
+  font-weight: 500;
+  text-align: left;
+  color: #ffffff;
+  line-height: 36rpx;
+  text-align: center;
+}
+.content .bottom-info .error text {
+  width: 36rpx;
+  height: 36rpx;
+  background: #ffa820;
+  border-radius: 50%;
+
+  font-size: 26rpx;
+  font-weight: 600;
+  line-height: 36rpx;
+  display: inline-block;
+  margin-right: 7rpx;
+
+  
+}
+
+.content .bottom-info.active {
+
+}
+
+.content .bottom-info .QRCode1 {
+  width: 440rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.content .bottom-info .btns {
+  width: 264rpx;
+  height: 52rpx;
+  background: linear-gradient(116deg,#ecaec0 18%, #d89eca);
+  border-radius: 28rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC, PingFangSC-Light;
+  font-weight: 300;
+  /* text-align: left; */
+  color: #ffffff;
+  /* line-height: 44rpx; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+
+}
+
+.content .bottom-info .erweima-wrap {
+  /* width: 318rpx;
+  height: 320rpx; */
+  
+  /* border: 1px dashed;
+  border-image: linear-gradient(180deg, #9c528a, #d7778c 99%) 0.5 0.5; */
+
+  margin: 0 auto;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  text-align: center;
+}
+
+.content .bottom-info .erweima-wrap .QRCode-img {
+  width: 290rpx;
+  height: 290rpx;
+  border: 1px dashed rgba(218,132,151, 0.5);
+  padding: 15rpx;
+  border-radius: 10rpx;
+}
+
+
+
+.content .bottom-info .erweima-wrap .text {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 15rpx;
+  margin-bottom: 30rpx;
+
+}
+
+
+.content .bottom-info .introduct {
+  /* margin-top: 120rpx; */
+  position: relative;
+}
+
+.introduct-wrap {
+  position: absolute;
+  width: 100%;
+  top: 60rpx;
+  left: 0;
+  z-index: 1;
+  padding-left: 55rpx;
+  padding-right: 55rpx;
+}
+
+.content .bottom-info .introduct .QRCode2 {
+  width: 672rpx;
+  height: 316rpx;
+}
+
+.content .bottom-info .introduct .introduct-tit {
+  font-size: 30rpx;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  text-align: left;
+  color: #ffffff;
+  /* line-height: 28rpx; */
+
+
+
+
+
+}
+
+.content .bottom-info .introduct .introduct-con {
+  font-size: 28rpx;
+  font-weight: 300;
+  /* text-align: justify; */
+  color: #fff;
+  line-height: 48rpx;
+  margin-top: 20rpx;
+}
+
+
+
+.content .bottom-info.active .erweima-wrap .QRCode-img {
+  opacity: 0.5;
+}
+.content .bottom-info.active .erweima-wrap .text {
+  opacity: 0.5;
+}
+
+.content.active {
+  padding-top: 15rpx;
+}
+.content .bottom-info.active .error {
+  margin-bottom: 30rpx;
+}
+
+.content .bottom-info.active .introduct .introduct-tit {
+  color: #fff;
+}
+
+.content .bottom-info.active .introduct .introduct-con {
+  color: #fff;
+}
+
+
+
+
+.support {
+  font-size: 20rpx;
+  font-family: PingFangSC, PingFangSC-Light;
+  font-weight: 300;
+  text-align: center;
+  color: #ffffff;
+  line-height: 28rpx;
+  /* padding-bottom: 20rpx; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50rpx;
+  width: 100%;
+
+}
+
+
+
+
+

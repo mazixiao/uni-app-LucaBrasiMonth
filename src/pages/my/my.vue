@@ -23,6 +23,7 @@
 				</view>
 			</view>
 
+		<!-- <van-button type="primary">主要按钮</van-button> -->
 			<view :class="['btns', {'active': status == 2}]">
 				<view class="btn1" v-if="status == 1" @click="checkStateFun">查看签到状态</view>
 				<view :class="['btn2', {'exit': exit}]" v-if="exit" @click="exitLoginFun">退出登录</view>
@@ -45,7 +46,7 @@
 		</view>
 
 
-		<!-- <van-button>666</van-button> -->
+
 
 	</view>
 </template>

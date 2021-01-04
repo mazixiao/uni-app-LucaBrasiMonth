@@ -19,8 +19,7 @@
 				"navigationBarTitleText": "我的"
 			},
 			"usingComponents": {
-				"van-toast": "/wxcomponents/vant/dist/Toast/index",
-				"van-button": "/wxcomponents/vant/dist/button/index"
+				"van-button": "wxcomponents/vant/dist/button/index"
 			}
 		},
 		{
@@ -38,10 +37,35 @@
 		{
 			"path": "pages/applyList/applyList",
 			"style": {
-				"navigationBarTitleText": "applyList",
-				"onReachBottomDistance":100 //距离底部多远时触发 单位px
+				"navigationBarTitleText": "applyList"
+				//距离底部多远时触发 单位px
+				// "onReachBottomDistance": 100 
+				
+			}
+		},
+		{
+			"path": "pages/QRCode/QRCode",
+			"style": {
+				"navigationBarTitleText": "二维码海报",
+				"navigationBarTextStyle": "white"
+				// "navigationStyle": "custom",
+			}
+		},
+		{
+			"path": "pages/checkState/checkState",
+			"style": {
+				"navigationBarTitleText": "签到状态",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/checkInDetail/checkInDetail",
+			"style": {
+				"navigationBarTitleText": "签到详情",
+				"navigationBarTextStyle": "white"
 			}
 		}
+		
 
 	],
 	"globalStyle": {
