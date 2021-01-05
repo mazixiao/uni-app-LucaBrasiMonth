@@ -67,7 +67,7 @@
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
 				isIphoneX_: App.globalData.isIphoneX,
 				// 手机号
-				phone: "18251826982",
+				phone: "",
 				// 邀请码
 				inviteCode: "438633",
 				// 438633

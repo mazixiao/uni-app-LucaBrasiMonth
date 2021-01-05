@@ -16,10 +16,12 @@
 		{
 			"path": "pages/my/my",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "我的",
+				"navigationBarTextStyle": "white"
 			},
 			"usingComponents": {
-				"van-button": "wxcomponents/vant/dist/button/index"
+				"van-button": "wxcomponents/vant/dist/button/index",
+				"navigationBarTextStyle": "white"
 			}
 		},
 		{
@@ -37,10 +39,11 @@
 		{
 			"path": "pages/applyList/applyList",
 			"style": {
-				"navigationBarTitleText": "applyList"
+				"navigationBarTitleText": "活动报名",
+				"navigationBarTextStyle": "white"
 				//距离底部多远时触发 单位px
 				// "onReachBottomDistance": 100 
-				
+
 			}
 		},
 		{
@@ -64,8 +67,25 @@
 				"navigationBarTitleText": "签到详情",
 				"navigationBarTextStyle": "white"
 			}
+		},
+		{
+			"path": "pages/scanPeople/scanPeople",
+			"style": {
+				"navigationBarTitleText": "YUANYUE",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/scanCheckInDetail/scanCheckInDetail",
+			"style": {
+				"navigationBarTitleText": "签到详情",
+				"navigationBarTextStyle": "white"
+			}
 		}
-		
+
+
+
+
 
 	],
 	"globalStyle": {
@@ -85,7 +105,15 @@
 		"backgroundColor": "#fff",
 		"borderStyle": "black",
 		"list": [{
+				// 普通用户
 				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "/static/images/link-icon1.png",
+				"selectedIconPath": "/static/images/link-icon1-hover.png"
+			},
+			{
+				// 扫码员
+				"pagePath": "pages/scanPeople/scanPeople",
 				"text": "首页",
 				"iconPath": "/static/images/link-icon1.png",
 				"selectedIconPath": "/static/images/link-icon1-hover.png"

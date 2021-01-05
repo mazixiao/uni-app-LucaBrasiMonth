@@ -111,19 +111,21 @@
 										this.$options.globalData.UserName = res.Data[0].nlikename;
 										this.$options.globalData.HeadPortrait = res.Data[0].headportrait;
 										this.$options.globalData.Status = res.Data[0].status;
+										// this.$options.globalData.Status = 2;
 
 										wx.setStorageSync("UserID", this.$options.globalData.UserID);
-										if (this.globalData.Status == 2) {
-											wx.reLaunch({
-												// url: '../../pages/scanPeople/scanPeople'
+										if (this.$options.globalData.Status == 2) {
+											console.log(2222)
+											uni.reLaunch({
+												url: '/pages/scanPeople/scanPeople'
 											});
 										} else {
-											wx.reLaunch({
-												// url: '../../pages/index/index'
+											uni.reLaunch({
+												url: '/pages/index/index'
 											})
 										}
 									} else {
-										this.globalData.LoginStatus = 1;
+										this.$options.globalData.LoginStatus = 1;
 									}
 								}
 

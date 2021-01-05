@@ -1,25 +1,43 @@
 <template>
 	<view>
 		<view class='tab-bar-container' :style="{'height': isIphoneX ? '80px': '45px' }">
-			<navigator class="navigator" :class="{'active': index == navActive}" v-for="(item, index) in navs" :key="item.url"
-			 open-type="switchTab" :url="item.url" hover-class="none">
-				<view class="tabImage">
-					<image class="tabbarIcon" mode="aspectFill" :src="item.selectedIconPath" v-if="index == navActive"></image>
-					<image class="tabbarIcon" mode="aspectFill" :src="item.iconPath" v-else></image>
-				</view>
-				<view class="text">{{item.text}}</view>
-			</navigator>
+			<!-- 普通用户 -->
+			<block v-if="Status==1">
+				<navigator class="navigator" :class="{'active': index == navActive}" v-for="(item, index) in navs" :key="item.url"
+				 open-type="switchTab" :url="item.url" hover-class="none">
+					<view class="tabImage">
+						<image class="tabbarIcon" mode="aspectFill" :src="item.selectedIconPath" v-if="index == navActive"></image>
+						<image class="tabbarIcon" mode="aspectFill" :src="item.iconPath" v-else></image>
+					</view>
+					<view class="text">{{item.text}}</view>
+				</navigator>
+			</block>
+
+
+			<!-- 扫码员 -->
+			<block v-else>
+				<navigator class="navigator" :class="{'active': index == navActive}" v-for="(item, index) in navs2" :key="item.url"
+				 open-type="switchTab" :url="item.url" hover-class="none">
+					<view class="tabImage">
+						<image class="tabbarIcon" mode="aspectFill" :src="item.selectedIconPath" v-if="index == navActive"></image>
+						<image class="tabbarIcon" mode="aspectFill" :src="item.iconPath" v-else></image>
+					</view>
+					<view class="text">{{item.text}}</view>
+				</navigator>
+			</block>
+
+
 		</view>
 	</view>
-	
-	
+
+
 </template>
 
 <script>
 	let App = getApp();
-	
-	
-	
+
+
+
 	export default {
 		name: "tabbar",
 		data() {
@@ -38,7 +56,25 @@
 						"selectedIconPath": "/static/images/link-icon2-hover.png"
 					},
 				],
-				isIphoneX: App.globalData.isIphoneX
+
+				navs2: [{
+						text: '首页(uni)扫码',
+						url: '../scanPeople/scanPeople',
+						"iconPath": "/static/images/link-icon1.png",
+						"selectedIconPath": "/static/images/link-icon1-hover.png"
+					},
+					{
+						text: '我的(uni)扫码',
+						url: '../my/my',
+						"iconPath": "/static/images/link-icon2.png",
+						"selectedIconPath": "/static/images/link-icon2-hover.png"
+					},
+				],
+
+
+				isIphoneX: App.globalData.isIphoneX,
+				// // 身份 1:参会人员 2:扫码人员
+				Status: App.globalData.Status,
 			}
 		},
 		props: {
@@ -52,7 +88,7 @@
 		},
 		mounted() {
 			console.log(this.isIphoneX, "88");
-			console.log(1199)
+			console.log(this.Status, "9999")
 		},
 		methods: {
 
