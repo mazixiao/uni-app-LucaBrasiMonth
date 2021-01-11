@@ -91,14 +91,6 @@
 			headers,
 			tabbar
 			// [Button.name]: Button,
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
@@ -106,20 +98,14 @@
 				userInfo: {},
 				hasUserInfo: false,
 				canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
-
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
-
 				isIphoneX_: App.globalData.isIphoneX,
 				// 是否登录
 				isLogin: false,
-
-
 				errorPhone: false,
 				errorName: false,
 				errorDate: false,
 				errorHouse: false,
-
 				// 姓名
 				name: '',
 				// 手机号
@@ -325,7 +311,6 @@
 
 				} else {}
 
-
 			},
 
 
@@ -350,24 +335,11 @@
 					console.log(res, "会场列表")
 
 					if (res.ReturnCode == 0) {
-
-						// this.setData({
-						// 	houseList2: res.Data,
-						// });
-
 						this.houseList2 = res.Data;
-
 						console.log(this.houseList2, "houseList2")
-
-
 					}
 				});
-
-
 			},
-
-
-
 		}
 	}
 </script>

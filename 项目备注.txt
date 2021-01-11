@@ -6,7 +6,6 @@ yuanyuetestapi.yinchtv.com   测试接口
 
 yuanyuetestweb.yinchtv.com   测试后台
 admin
-123123
 
 	
 媛月AppID(小程序ID) 

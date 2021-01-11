@@ -12,7 +12,6 @@
 				<view class="noyyTitle">暂无团队预约信息</view>
 			</view>
 
-
 			<view class="apply-wrap" :style="{'display':displayN}">
 				<view class="item" v-for='(item, index) in albumList' :key="id">
 					<view class="head-portrait">
@@ -41,11 +40,6 @@
 			</view>
 		</view>
 
-
-
-
-
-
 	</view>
 </template>
 
@@ -64,40 +58,22 @@
 		components: {
 			headers,
 			tabbar
-			// [Button.name]: Button,
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
 			return {
-
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
-
 				isIphoneX_: getApp().globalData.isIphoneX,
-
-
 				displayI: '',
 				displayN: '',
 				ToLoad: '',
-
 				albumList: [],
 				isDelegateArray: [],
 				page: 0,
 				allPage: ''
-
-
 			}
 		},
 		onLoad() {
-
-
 
 			this.albumList = [];
 			this.allAlbum = [];
@@ -130,8 +106,6 @@
 				}
 				api_js.postReq(data, (res) => {
 					console.log(res, "报名详情");
-
-
 					let barcode = res.Data[0].barcodes[0].barcode;
 					let barcodeimg = res.Data[0].barcodes[0].barcodeimg;
 					let barstatus = res.Data[0].barcodes[0].barstatus;
@@ -147,24 +121,12 @@
 					console.log(name, "name");
 					console.log(meetingplace, "meetingplace");
 					console.log(participantstime, "participantstime");
-
-
 					wx.navigateTo({
 						url: `../checkInDetail/checkInDetail?customerid=${customerid}&barcode=${barcode}`
 					})
-
-
 				})
-
 			},
 			
-			
-
-			
-			
-
-
-
 			// 商家相册列表
 			getAlbum(page, size) {
 				var that = this;
@@ -236,15 +198,9 @@
 			var that = this;
 			// console.log(that.page, that.allPage)
 			if (that.page < that.allPage - 1) {
-				// that.setData({
-				// 	page: that.page + 1
-				// })
 				that.page = that.page + 1;
 				that.getAlbum(that.page, 10)
 			} else {
-				// that.setData({
-				// 	ToLoad: '',
-				// });
 				that.ToLoad = '';
 			}
 		}

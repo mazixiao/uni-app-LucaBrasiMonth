@@ -1,9 +1,5 @@
 <template>
 	<view class="">
-
-		<!-- <header title="YUANYUE" show_logo="{{true}}" show_bol="{{true}}" show_title="{{false}}" titleColor="#fff"
-  GoBackWhite=""></header> -->
-
 		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#fff" :GoBackWhite="false"></headers>
 		<tabbar navActive='0'></tabbar>
 		<view :class="['content', {'isIphoneX_': isIphoneX_}]">
@@ -24,27 +20,13 @@
 					<image class="img" mode="" src='/static/images/scanPeople2.png'></image>
 				</view>
 			</view>
-
-
-
-
-
-
-
-
 		</view>
-
-
-
 	</view>
 </template>
 
 <script>
 	import headers from "../../components/headers.vue";
 	import tabbar from '../../components/tabbar.vue';
-
-
-
 	const mdCode = require('../../utils/md5.js');
 	const desCode = require('../../utils/aesUtil.js');
 	const api_js = require("../../utils/api.js");
@@ -55,42 +37,24 @@
 		components: {
 			headers,
 			tabbar
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
 			return {
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
-
 				isIphoneX_: App.globalData.isIphoneX,
-
-
 			}
 		},
 		onLoad() {
 			uni.hideTabBar({
 				animation: false
 			});
-
-
-
-
-
-
 		},
 		methods: {
 
 			EwmFun() {
 				var that = this;
 				var show;
-
 				if (App.globalData.LoginStatus == 1) {
 					wx.showToast({
 						title: '请先登录',
@@ -101,8 +65,6 @@
 					return;
 				};
 
-
-
 				wx.scanCode({
 					success: (res) => {
 
@@ -111,12 +73,9 @@
 						var code = res.result;
 						if (code.length == 15) {
 							console.log("跳转")
-
-
 							uni.navigateTo({
 								url: `../scanCheckInDetail/scanCheckInDetail?customerid=0&barcode=${code}`
 							})
-
 						} else {
 							wx.showToast({
 								title: '扫码失败,请重试',

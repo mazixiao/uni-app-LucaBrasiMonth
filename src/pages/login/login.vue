@@ -35,14 +35,11 @@
 			<view class="support">深圳银创网络科技提供技术支持</view>
 		</view>
 
-
 	</view>
 </template>
 
 <script>
 	import headers from "../../components/headers.vue";
-
-
 	const mdCode = require('../../utils/md5.js');
 	const desCode = require('../../utils/aesUtil.js');
 	const api_js = require("../../utils/api.js");
@@ -52,14 +49,6 @@
 		components: {
 			headers,
 			// [Button.name]: Button,
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
@@ -97,10 +86,6 @@
 		},
 		methods: {
 
-
-
-
-
 			// 号码验证(手机)
 			checkPhoness(phone) {
 
@@ -116,21 +101,16 @@
 
 
 			checkPhoness2(phone) {
-
 				if (!/^1[34578]\d{9}$/.test(phone)) {
-
 					if (phone.length == 0 || phone.length == 11) {
 						this.errorPhone = true;
 						return false;
 					}
-
 				} else {
 					this.errorPhone = false;
 					return true;
 				}
 			},
-
-
 
 			// 邀请码验证
 			checkInviteCode(value) {
@@ -187,25 +167,12 @@
 							// }
 							// 已发送50s
 							if (res.ReturnCode == 0) {
-								// that.setData({
-								// 	show_get_code: '已发送' + (that.get_code_time) + 's',
-								// 	get_code_color: true,
-								// 	get_code_status: false
-								// });
-								
 								that.show_get_code = '已发送' + (that.get_code_time) + 's';
 								that.get_code_color = true;
 								that.get_code_status = false;
 
 								var timer = setInterval(function() {
 									if (that.get_code_time > 0) {
-										// that.setData({
-										// 	get_code_time: that.data.get_code_time - 1,
-										// 	show_get_code: '已发送' + (that.data.get_code_time - 1) + 's',
-										// 	get_code_color: true,
-										// 	get_code_status: false
-										// });
-										
 										that.get_code_time = that.get_code_time - 1;
 										that.show_get_code = '已发送' + (that.get_code_time - 1) + 's';
 										that.get_code_color = true;
@@ -213,13 +180,6 @@
 										
 									} else {
 										clearInterval(timer);
-										// that.setData({
-										// 	get_code_time: 60,
-										// 	show_get_code: '重新发送',
-										// 	get_code_color: false,
-										// 	get_code_status: true
-										// });
-										
 										that.get_code_time = 60;
 										that.show_get_code = '重新发送';
 										that.get_code_color = false;
@@ -234,20 +194,13 @@
 
 						})
 					}
-
 				}
-
-
 			},
-
 
 
 			// 表单
 			formSubmit() {
 				var that = this;
-
-
-
 				this.checkPhoness(this.phone);
 				this.checkInviteCode(this.inviteCode);
 				this.checkNoteCode(this.noteCode);
@@ -267,12 +220,8 @@
 					// invitationcode ///邀请码
 					// code ///短信验证码
 					// openid ///openid
-
-
 					// app.globalData.LoginStatus
-
 					var wMsgID = desCode.wMsgID();
-					// console.log('_openid', that.data.openid);
 					var wParam = desCode.to3des(
 						`phone=${that.phone}_invitationcode=${that.inviteCode}_code=${that.noteCode}_openid=${App.globalData.openid}`
 					);
@@ -288,8 +237,6 @@
 						wRequestUserID: 4
 					}
 					api_js.postReq(data, (res) => {
-
-
 						if (res.ReturnCode == 202) {
 							wx.showToast({
 								title: '邀请码不正确',
@@ -309,23 +256,17 @@
 
 						if (res.ReturnCode == 0) {
 
-
 							console.log(res, "登录转态");
-
 							// 1:参会人员 2:扫码人员
 							// app.globalData.LoginStatus = res.Data[0].loginstatus;
 							console.log(App.globalData.LoginStatus, "App.globalData.LoginStatus");
-
 							App.globalData.LoginStatus = res.Data[0].loginstatus;
 							App.globalData.UserID = res.Data[0].id;
 							App.globalData.Phone = res.Data[0].phone;
 							App.globalData.UserName = res.Data[0].nlikename;
 							App.globalData.HeadPortrait = res.Data[0].headportrait;
 							App.globalData.Status = res.Data[0].status;
-
 							wx.setStorageSync("UserID", res.Data[0].id);
-
-
 							if (App.globalData.Status == 2) {
 								uni.reLaunch({
 									url: '../../pages/scanPeople/scanPeople'
@@ -335,17 +276,10 @@
 									url: '../../pages/index/index'
 								})
 							}
-
 						}
 					})
-
-
-
 				}
-
-
 			},
-
 		}
 	}
 </script>

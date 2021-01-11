@@ -55,22 +55,12 @@
 						<view class="info readOnly">客户备注：{{checkInDetail.remark ? checkInDetail.remark: ''}}</view>
 						<view class="info readOnly">后台备注：{{checkInDetail.ddremark ? checkInDetail.ddremark: ''}}</view>
 					</view>
-
-
 				</view>
-
-
-
 			</view>
 
 			<view class="btn" @click="checkedCommit" v-if="dataStatus == 0 && checkInDetail.barstatus == 0">确认签到</view>
 			<view class="btn2" v-if="dataStatus == 2 && checkInDetail.barstatus == 0">参会日期未到</view>
-
-
 		</view>
-
-
-
 	</view>
 </template>
 
@@ -90,14 +80,6 @@
 		components: {
 			headers,
 			tabbar
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
@@ -119,24 +101,13 @@
 			}
 		},
 		onLoad: function(options) {
-
 			var that = this;
-			// this.setData({
-			// 	customerid: options.customerid,
-			// 	barcode: options.barcode,
-			// 	Status: app.globalData.Status,
-			// 	nowDate: new Date(),
-			// });
 			this.customerid = options.customerid;
 			this.barcode = options.barcode;
 			this.Status = App.globalData.Status;
 			this.nowDate = new Date();
-
-
-
 			let customerid = this.customerid;
 			let barcode = this.barcode;
-
 			var wMsgID = desCode.wMsgID();
 			var wParam = desCode.to3des(`customerid=${customerid}_barcode=${barcode}`);
 			var md = mdCode.hexMD5('9999' + '110' + wMsgID + wParam + 'q1w2e3r4t5y6');
@@ -152,27 +123,15 @@
 			}
 			api_js.postReq(data, (res) => {
 				console.log(res, "签到记录详情");
-
-
-				// return;
-				// this.setData({
-				// 	checkInDetail: res.Data[0],
-				// 	barstatus: res.Data[0].barstatus
-				// });
 				this.checkInDetail = res.Data[0];
-				// this.checkInDetail.participantstime = this.sub(this.checkInDetail.participantstime);
-				
 				// 深拷贝
 				this.checkInDetail.participantstime22 = this.sub(JSON.parse(JSON.stringify(this.checkInDetail.participantstime)));
 				this.barstatus = res.Data[0].barstatus;
 				console.log(this.barstatus, "app.globalData.Status");
-
 				var Participantstime = res.Data[0].participantstime;
 				var Termofvalidity = res.Data[0].termofvalidity;
-
 				console.log(Participantstime, "Participantstime");
 				console.log(Termofvalidity, "Termofvalidity");
-
 				console.log(this.barstatus, "this.barstatus")
 				switch (this.barstatus) {
 					case 0:
@@ -185,21 +144,14 @@
 					case 1:
 						///判断按钮显示隐藏
 						console.log(this.barstatus, "1");
-
 						break;
 					case 2:
 						///判断按钮显示隐藏
-
 						console.log(this.barstatus, "2");
-
 						break;
 				}
-
 			})
-
 		},
-
-
 		methods: {
 			tab00(date1, date2, date3) {
 
@@ -219,39 +171,21 @@
 				if (oDate1.getTime() <= oDate2.getTime()) {
 
 					if (oDate3.getTime() <= oDate2.getTime()) {
-						// 已失效
-						// that.setData({
-						// 	dataStatus: 1
-						// })
 						that.dataStatus = 1;
 						console.log('活动已失效');
 					} else {
-						//进行中
-						// that.setData({
-						// 	dataStatus: 0
-						// })
 						that.dataStatus = 0;
 						console.log('活动进行中');
 					}
 				} else if (oDate1.getTime() > oDate2.getTime()) {
-					// that.setData({
-					// 	dataStatus: 2
-					// })
 					that.dataStatus = 2;
 					console.log('参会日期未到');
 				} else {
-					// that.setData({
-					// 	dataStatus: 1
-					// })
 					that.dataStatus = 1;
 					console.log('that.dataStatus = 1');
 				};
-
-
 				console.log(that.dataStatus, "that.dataStatus哈哈哈");
 			},
-
-
 
 
 			tab(date1, date2, date3) {
@@ -263,45 +197,26 @@
 				var oDate1 = new Date(date1); //到访日期
 				var oDate2 = new Date(date2); //当前时间
 				var oDate3 = new Date(date3); //当前时间
-
-
-
 				console.log(oDate1, 'oDate1');
 				console.log(oDate2, 'oDate2');
 				console.log(oDate3, 'oDate3');
-				
-
 				if (oDate1.getTime() <= oDate2.getTime()) {
 
 					if (oDate3.getTime() <= oDate2.getTime()) {
 						// 已失效
-						// that.setData({
-						// 	dataStatus: 1
-						// });
 						that.dataStatus = 1;
 						console.log('活动已失效');
 					} else {
 						//进行中
-						// that.setData({
-						// 	dataStatus: 0
-						// })
 						that.dataStatus = 0;
 						console.log('活动进行中');
 					}
 				} else if (oDate1.getTime() > oDate2.getTime()) {
-					// that.setData({
-					// 	dataStatus: 2
-					// })
 					that.dataStatus = 2;
 					console.log('参会日期未到');
 				} else {
-					// that.setData({
-					// 	dataStatus: 1
-					// })
 					that.dataStatus = 1;
 				};
-
-
 				console.log(that.dataStatus, "that.dataStatus哈哈哈");
 			},
 
@@ -317,7 +232,6 @@
 				// var GoTime = GoTime1.replace(/-/g, "/");
 				return timeArray == '' ? '' : timeArray[0] + '年' + timeArray[1] + '月' + timeArray[2] + '日';
 			},
-
 
 			checkedCommit() {
 				var wMsgID = desCode.wMsgID();
@@ -335,7 +249,6 @@
 				}
 				api_js.postReq(data, (res) => {
 					console.log(res, "扫码签到");
-
 					if (res.ReturnCode == 0) {
 						let customerid = this.customerid;
 						let barcode = this.barcode;
@@ -354,12 +267,6 @@
 						}
 						api_js.postReq(data, (res) => {
 							console.log(res, "签到记录详情");
-
-							// this.setData({
-							// 	checkInDetail: res.Data[0],
-							// 	barstatus: res.Data[0].barstatus
-							// });
-
 							this.checkInDetail = res.Data[0];
 							this.barstatus = res.Data[0].barstatus;
 						})

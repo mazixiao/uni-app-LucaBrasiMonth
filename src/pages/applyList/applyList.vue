@@ -12,7 +12,6 @@
 				<view class="noyyTitle">暂无团队预约信息</view>
 			</view>
 
-
 			<view class="apply-wrap" :style="{'display':displayN}">
 				<view class="item" v-for='(item, index) in albumList' :key="id">
 					<view class="head-portrait">
@@ -41,11 +40,6 @@
 			</view>
 		</view>
 
-
-
-
-
-
 	</view>
 </template>
 
@@ -65,56 +59,33 @@
 			headers,
 			tabbar
 			// [Button.name]: Button,
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
 			return {
-
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
-
 				isIphoneX_: getApp().globalData.isIphoneX,
-
-
 				displayI: '',
 				displayN: '',
 				ToLoad: '',
-
 				albumList: [],
 				isDelegateArray: [],
 				page: 0,
 				allPage: ''
-
-
 			}
 		},
 		onLoad() {
-
-
-
 			this.albumList = [];
 			this.allAlbum = [];
 			this.getAlbum(0, 10)
-
 		},
 		methods: {
 			checkFun(e) {
 				console.log(e.currentTarget.dataset.id, "item");
-
-
 				let customerid = e.currentTarget.dataset.id;
-
 				// ==========================(109)报名详情================================================
 				// 入参：
 				//   customerid ///活动报名id
-
 				var wMsgID = desCode.wMsgID();
 				var wParam = desCode.to3des(`customerid=${customerid}`);
 				var md = mdCode.hexMD5('9999' + '109' + wMsgID + wParam + 'q1w2e3r4t5y6');
@@ -130,8 +101,6 @@
 				}
 				api_js.postReq(data, (res) => {
 					console.log(res, "报名详情");
-
-
 					let barcode = res.Data[0].barcodes[0].barcode;
 					let barcodeimg = res.Data[0].barcodes[0].barcodeimg;
 					let barstatus = res.Data[0].barcodes[0].barstatus;
@@ -139,7 +108,6 @@
 					let meetingplace = res.Data[0].meetingplace;
 					let participantstime = res.Data[0].participantstime.split(' ')[0];
 					let logo = res.Data[0].logo;
-
 					console.log(barcode, "barcode");
 					console.log(barcodeimg, "barcodeimg");
 					// (0:未使用 1：已失效 2：已使用 3:已删除)
@@ -147,18 +115,11 @@
 					console.log(name, "name");
 					console.log(meetingplace, "meetingplace");
 					console.log(participantstime, "participantstime");
-
-
 					wx.navigateTo({
 						url: `../QRCode/QRCode?barcode=${barcode}&barcodeimg=${barcodeimg}&barstatus=${barstatus}&name=${name}&meetingplace=${meetingplace}&participantstime=${participantstime}&logo=${logo}`
 					})
-
-
 				})
-
 			},
-
-
 
 			// 商家相册列表
 			getAlbum(page, size) {
@@ -219,32 +180,20 @@
 				return timeArray == '' ? '' : timeArray[0] + '年' + timeArray[1] + '月' + timeArray[2] + '日';
 			}
 
-
 		},
-
 
 		/**
 		 * 页面上拉触底事件的处理函数
 		 */
-
 		onReachBottom() {
 			var that = this;
-			// console.log(that.page, that.allPage)
 			if (that.page < that.allPage - 1) {
-				// that.setData({
-				// 	page: that.page + 1
-				// })
 				that.page = that.page + 1;
 				that.getAlbum(that.page, 10)
 			} else {
-				// that.setData({
-				// 	ToLoad: '',
-				// });
 				that.ToLoad = '';
 			}
 		}
-
-
 	}
 </script>
 

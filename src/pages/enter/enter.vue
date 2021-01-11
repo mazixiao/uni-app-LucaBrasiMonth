@@ -1,6 +1,5 @@
 <template>
 	<view class="content">
-
 		<view class="content">
 			<image v-if="imgSrc" class="enterBg" mode="aspectFill" :src='imgSrc'></image>
 
@@ -12,17 +11,12 @@
 				<view class="support">深圳银创网络科技提供技术支持</view>
 			</div>
 		</view>
-
-
-
 	</view>
 </template>
 
 <script>
 	import headers from "../../components/headers.vue";
 	import tabbar from '../../components/tabbar.vue';
-
-
 
 	const mdCode = require('../../utils/md5.js');
 	const desCode = require('../../utils/aesUtil.js');
@@ -47,21 +41,14 @@
 		data() {
 			return {
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
-
 				imgSrc: '',
 				videoSrc: '',
-
-
 			}
 		},
 		onLoad() {
 			uni.hideTabBar({
 				animation: false
 			});
-
-
-
-
 
 			let wMsgID = desCode.wMsgID();
 			// let wParam = desCode.to3des();
@@ -78,9 +65,6 @@
 				wRequestUserID: 4
 			}
 			api_js.postReq(data, (res) => {
-				// this.imgSrc = res.Data[0].logo;
-				// console.log(this.imgSrc, "res");
-
 				if (res.ReturnCode == 0) {
 					if (res.Data[0].categorykey == '1') {
 						this.imgSrc = res.Data[0].logo;
@@ -89,11 +73,6 @@
 					}
 				}
 			});
-
-
-
-
-
 
 		},
 		methods: {

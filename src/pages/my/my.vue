@@ -3,7 +3,6 @@
 
 
 		<headers title="我的" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#fff" :GoBackWhite="false"></headers>
-<!-- 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view> -->
 		<tabbar navActive='1'></tabbar>
 		<view :class="['content', {'isIphoneX_': isIphoneX_}]">
 			<view class="my-top">
@@ -11,8 +10,6 @@
 				<!-- 未登录 -->
 				<button class="introduct" v-if="!headportrait" open-type="getUserInfo" @getuserinfo="bindGetUserInfo"
 				 withCredentials="true">
-
-					<!-- <button class='testbutton' open-type="getUserInfo" @getuserinfo="getuserinfo" withCredentials="true"> -->
 					<image class="myImg" mode="" src='/static/images/DefaultAvatar.png'></image>
 					<view class="text">点击获取头像</view>
 				</button>
@@ -22,8 +19,6 @@
 					<view class="text">{{nickName}}</view>
 				</view>
 			</view>
-
-		<!-- <van-button type="primary">主要按钮</van-button> -->
 			<view :class="['btns', {'active': status == 2}]">
 				<view class="btn1" v-if="status == 1" @click="checkStateFun">查看签到状态</view>
 				<view :class="['btn2', {'exit': exit}]" v-if="exit" @click="exitLoginFun">退出登录</view>
@@ -66,15 +61,6 @@
 		components: {
 			headers,
 			tabbar
-			// [Button.name]: Button,
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
@@ -101,14 +87,6 @@
 				animation: false
 			});
 
-
-
-			// if (App.globalData.Status == 2) {
-			// 	App.editTabBar2();
-			// } else {
-			// 	App.editTabBar3();
-			// }
-
 			if (App.globalData.LoginStatus == 0) {
 				this.exit = true;
 				this.nickName = App.globalData.UserName;
@@ -117,10 +95,6 @@
 			} else {
 				this.exit = false;
 			};
-
-
-
-
 
 		},
 		methods: {
@@ -257,12 +231,6 @@
 						console.log(nickName, "nickName");
 						console.log(headportrait, "headportrait");
 						console.log(gender, "gender");
-
-
-
-
-
-
 						var wMsgID = desCode.wMsgID();
 						var wParam = desCode.to3des(
 							`userid=${userid}_phone=${phone}_openid=${openid}_nlikename=${nickName}_headportrait=${headportrait}_gender=${gender}`
@@ -279,22 +247,14 @@
 							wRequestUserID: 4
 						}
 						api_js.postReq(data, (res) => {
-
-
 							console.log(App.globalData.UserID, "app.globalData.UserID");
 							console.log(App.globalData.LoginStatus, "this.globalData.LoginStatus");
 							console.log(App.globalData.Phone, "app.globalData.Phone");
 							console.log(App.globalData.UserName, "app.globalData.UserName");
 							console.log(App.globalData.HeadPortrait, "app.globalData.HeadPortrait");
-
-
 							console.log(res, "点击登录");
-
 							// 106接口
 							// userid
-
-
-
 							var wMsgID = desCode.wMsgID();
 							var wParam = desCode.to3des(`userid=${App.globalData.UserID}`);
 							var md = mdCode.hexMD5('9999' + '106' + wMsgID + wParam + 'q1w2e3r4t5y6');
@@ -310,31 +270,19 @@
 							}
 							api_js.postReq(data, (res) => {
 								console.log(res, "我的个人中心");
-
 								App.globalData.UserName = res.Data[0].nlikename;
 								App.globalData.HeadPortrait = res.Data[0].headportrait;
 								this.nickName = App.globalData.UserName;
 								this.headPortrait = App.globalData.HeadPortrait;
-
 							})
-
 						})
-
-
-
-
-
-
-
 
 					} else {
 						//用户按了拒绝按钮
 						console.log("被拒绝")
 					}
 				}
-
 			},
-
 		}
 	}
 </script>

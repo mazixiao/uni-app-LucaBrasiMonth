@@ -1,20 +1,11 @@
 <template>
-	<!-- <view class="page" style="background-image:url({{logo}});min-height:100vh"> -->
 	<view class="page" :style="{'background-image': 'url(' + logo + ')', 'min-height': '100vh'}">
-		<!-- imagePath -->
 		<headers title="二维码海报" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true"
 		 :backgroundColor="'transparent'"></headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  'transparent'}"></view>
-
 		<view :class="['content', {'isIphoneX_': isIphoneX_}, {'active': isDisabled}]">
-
-
-			<!-- :class="bottom-info {{ isDisabled ? 'active' : ''}}" -->
 			<view :class="['bottom-info', {'active': isDisabled}]">
-
-
 				<!-- // 二维码状态(0:未使用 1：已失效 2：已使用 3:已删除) -->
-
 				<view class="error" v-if="barstatus == 1"><text>!</text>抱歉，活动已过期！</view>
 				<view class="error" v-if="barstatus == 2"><text>!</text>已使用</view>
 				<image class="QRCode1" mode="aspectFill" src='/static/images/QRCode1.png'></image>
@@ -54,14 +45,6 @@
 			headers,
 			tabbar
 			// [Button.name]: Button,
-			// [Tab.name]: Tab,
-			// [Tabs.name]: Tabs,
-			// [List.name]: List,
-			// [Cell.name]: Cell,
-			// [Loading.name]: Loading,
-			// [Swipe.name]: Swipe,
-			// [SwipeItem.name]: SwipeItem,
-			// [Lazyload.name]: Lazyload,
 		},
 
 		data() {
@@ -69,7 +52,6 @@
 				bar_Height: wx.getSystemInfoSync().statusBarHeight,
 
 				isIphoneX_: App.globalData.isIphoneX,
-
 				// 二维码是否失效
 				isDisabled: false,
 				imagePath: 'https://p1.music.126.net/hbEcXNsM7Ay-lGWXsx9hmQ==/109951165444313716.jpg?param=200y200',
@@ -91,8 +73,6 @@
 			}
 		},
 		onLoad(options) {
-
-		
 				this.barcode = options.barcode;
 				this.barcodeimg = options.barcodeimg;
 				this.barstatus = options.barstatus;
@@ -100,8 +80,6 @@
 				this.name = options.name;
 				this.participantstime = this.sub(options.participantstime);
 				this.logo = options.logo;
-		
-
 			if (this.barstatus == 0) {
 				this.isDisabled = false;
 			} else {
@@ -111,10 +89,8 @@
 
 		},
 		methods: {
-
 			showBrandStoryImage(e) {
 				var imagePath = this.barcodeimg;
-				// var imagePath = that.data.BarCodeImg;
 				console.log(imagePath, "imagePathimagePath")
 				wx.previewImage({
 					current: imagePath, // 当前显示图片的http链接 
@@ -131,7 +107,6 @@
 			  // var GoTime = GoTime1.replace(/-/g, "/");
 			  return timeArray == '' ? '' : timeArray[0] + '年' + timeArray[1] + '月' + timeArray[2] + '日';
 			}
-
 
 		}
 	}
