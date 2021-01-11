@@ -1,7 +1,8 @@
 <template>
 	<view class="">
 
-		<headers title="签到详情" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true" :backgroundColor="'linear-gradient(135deg,#9c528a, #d7778c 99%)'"></headers>
+		<headers title="签到详情" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true"
+		 :backgroundColor="'linear-gradient(135deg,#9c528a, #d7778c 99%)'"></headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 
 		<view :class="['content', {'isIphoneX_': isIphoneX_}]">
@@ -20,8 +21,11 @@
 				<view class="nail nail2"></view>
 				<!-- 是否签到图片 -->
 				<!-- 二维码状态(0:未使用 1：已失效 2：已使用 3:已删除) -->
+				<!-- 未签到 -->
 				<image class="isCheckedImg" v-if="checkInDetail.barstatus == 0 && dataStatus == 0" src='/static/images/checkInDetail7.png'></image>
+				<!-- 已签到 -->
 				<image class="isCheckedImg" v-else-if="checkInDetail.barstatus == 2" src='/static/images/checkInDetail6.png'></image>
+				<!-- 已失效 -->
 				<image class="isCheckedImg" v-else-if="checkInDetail.barstatus == 1" src='/static/images/checkInDetail8.png'></image>
 				<image class="roll" src='/static/images/checkInDetail5.png'></image>
 
@@ -37,7 +41,7 @@
 						<view class="names-wrap">
 							<image class="icon" src='/static/images/checkInDetail3.png'></image>
 							<view class="names" v-if="checkInDetail.participantstime">参会日期：
-								<!-- {{dateTransform.sub(checkInDetail.participantstime)}} -->
+								{{checkInDetail.participantstime22}}
 							</view>
 						</view>
 						<view class="info">会场名称：{{checkInDetail.meetingplace}}</view>
@@ -132,7 +136,7 @@
 
 			let customerid = this.customerid;
 			let barcode = this.barcode;
-		
+
 			var wMsgID = desCode.wMsgID();
 			var wParam = desCode.to3des(`customerid=${customerid}_barcode=${barcode}`);
 			var md = mdCode.hexMD5('9999' + '110' + wMsgID + wParam + 'q1w2e3r4t5y6');
@@ -150,12 +154,16 @@
 				console.log(res, "签到记录详情");
 
 
-				return;
+				// return;
 				// this.setData({
 				// 	checkInDetail: res.Data[0],
 				// 	barstatus: res.Data[0].barstatus
 				// });
 				this.checkInDetail = res.Data[0];
+				// this.checkInDetail.participantstime = this.sub(this.checkInDetail.participantstime);
+				
+				// 深拷贝
+				this.checkInDetail.participantstime22 = this.sub(JSON.parse(JSON.stringify(this.checkInDetail.participantstime)));
 				this.barstatus = res.Data[0].barstatus;
 				console.log(this.barstatus, "app.globalData.Status");
 
@@ -165,7 +173,7 @@
 				console.log(Participantstime, "Participantstime");
 				console.log(Termofvalidity, "Termofvalidity");
 
-
+				console.log(this.barstatus, "this.barstatus")
 				switch (this.barstatus) {
 					case 0:
 						/// 判断会议时间
@@ -193,9 +201,9 @@
 
 
 		methods: {
-			tab(date1, date2, date3) {
+			tab00(date1, date2, date3) {
 
-				console.log(21122)
+				console.log(9999)
 				var that = this;
 				// var oDate1 = util.formatTime(new Date(date1));
 				// var oDate2 = util.formatDate(new Date(date2));
@@ -204,7 +212,9 @@
 				var oDate3 = new Date(date3); //当前时间
 
 
-				console.log('oDate3', oDate3, 'oDate2', oDate2, 'oDate1', oDate1);
+				console.log('oDate3', oDate3);
+				console.log('oDate2', oDate2);
+				console.log('oDate1', oDate1);
 
 				if (oDate1.getTime() <= oDate2.getTime()) {
 
@@ -234,16 +244,84 @@
 					// 	dataStatus: 1
 					// })
 					that.dataStatus = 1;
-				}
+					console.log('that.dataStatus = 1');
+				};
+
+
+				console.log(that.dataStatus, "that.dataStatus哈哈哈");
 			},
 
+
+
+
+			tab(date1, date2, date3) {
+
+				console.log(21122)
+				var that = this;
+				// var oDate1 = util.formatTime(new Date(date1));
+				// var oDate2 = util.formatDate(new Date(date2));
+				var oDate1 = new Date(date1); //到访日期
+				var oDate2 = new Date(date2); //当前时间
+				var oDate3 = new Date(date3); //当前时间
+
+
+
+				console.log(oDate1, 'oDate1');
+				console.log(oDate2, 'oDate2');
+				console.log(oDate3, 'oDate3');
+				
+
+				if (oDate1.getTime() <= oDate2.getTime()) {
+
+					if (oDate3.getTime() <= oDate2.getTime()) {
+						// 已失效
+						// that.setData({
+						// 	dataStatus: 1
+						// });
+						that.dataStatus = 1;
+						console.log('活动已失效');
+					} else {
+						//进行中
+						// that.setData({
+						// 	dataStatus: 0
+						// })
+						that.dataStatus = 0;
+						console.log('活动进行中');
+					}
+				} else if (oDate1.getTime() > oDate2.getTime()) {
+					// that.setData({
+					// 	dataStatus: 2
+					// })
+					that.dataStatus = 2;
+					console.log('参会日期未到');
+				} else {
+					// that.setData({
+					// 	dataStatus: 1
+					// })
+					that.dataStatus = 1;
+				};
+
+
+				console.log(that.dataStatus, "that.dataStatus哈哈哈");
+			},
+
+
+
+
+			// 时间格式化
+			// 2021/1/4 10:28:00 => 2021年1月4日
+			sub(val) {
+				var arr = val.split(' ');
+				var GoTime = arr[0];
+				var timeArray = GoTime.split('/')
+				// var GoTime = GoTime1.replace(/-/g, "/");
+				return timeArray == '' ? '' : timeArray[0] + '年' + timeArray[1] + '月' + timeArray[2] + '日';
+			},
+
+
 			checkedCommit() {
-
-
-
-
 				var wMsgID = desCode.wMsgID();
-				var wParam = desCode.to3des(`barcode=${this.data.barcode}`);
+				var wParam = desCode.to3des(`barcode=${this.barcode}`);
 				var md = mdCode.hexMD5('9999' + '112' + wMsgID + wParam + 'q1w2e3r4t5y6');
 				const data = {
 					wAgent: 9999,
@@ -259,12 +337,8 @@
 					console.log(res, "扫码签到");
 
 					if (res.ReturnCode == 0) {
-
-						let customerid = this.data.customerid;
-						let barcode = this.data.barcode;
-
-
-
+						let customerid = this.customerid;
+						let barcode = this.barcode;
 						var wMsgID = desCode.wMsgID();
 						var wParam = desCode.to3des(`customerid=${customerid}_barcode=${barcode}`);
 						var md = mdCode.hexMD5('9999' + '110' + wMsgID + wParam + 'q1w2e3r4t5y6');

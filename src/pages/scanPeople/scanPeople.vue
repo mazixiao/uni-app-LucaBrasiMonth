@@ -4,7 +4,7 @@
 		<!-- <header title="YUANYUE" show_logo="{{true}}" show_bol="{{true}}" show_title="{{false}}" titleColor="#fff"
   GoBackWhite=""></header> -->
 
-		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#fff" :GoBackWhite="false" :backgroundColor="'linear-gradient(135deg,#9c528a, #d7778c 99%)'"></headers>
+		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" titleColor="#fff" :GoBackWhite="false"></headers>
 		<tabbar navActive='0'></tabbar>
 		<view :class="['content', {'isIphoneX_': isIphoneX_}]">
 			<view class="apply-top">
