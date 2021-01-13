@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* pages/apply/apply.wxss */
+.content.data-v-bf3ed874 {
+  background-color: #fffdfb;
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+.content .apply-top.data-v-bf3ed874 {
+  position: relative;
+}
+.content .apply-top .applyImg.data-v-bf3ed874 {
+  width: 750rpx;
+  height: 512rpx;
+  vertical-align: top;
+}
+.content .apply-top .introduct.data-v-bf3ed874 {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  bottom: 90rpx;
+  z-index: 1;
+}
+.content .apply-top .introduct .en.data-v-bf3ed874 {
+  font-size: 64rpx;
+  font-family: 'Didot-bold';
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  line-height: 68rpx;
+}
+.content .apply-top .introduct .cn.data-v-bf3ed874 {
+  font-size: 30rpx;
+  font-family: STSongti, STSongti-SC;
+  /* font-weight: SC; */
+  text-align: center;
+  color: #ffffff;
+  line-height: 42rpx;
+  margin-top: 8rpx;
+  margin-bottom: 6rpx;
+}
+.content .apply-top .introduct .en-small.data-v-bf3ed874 {
+  font-size: 20rpx;
+  font-family: 'Didot-bold';
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  line-height: 26rpx;
+}
+.content .check-in.data-v-bf3ed874 {
+  margin: 0 auto;
+  margin-top: 86rpx;
+  /* width: 580rpx;
+  height: 368rpx;
+  background: #ffffff;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238,191,204,0.36);  */
+  position: relative;
+  width: 690rpx;
+  height: 484rpx;
+}
+.content .check-in .checkImg.data-v-bf3ed874 {
+  width: 690rpx;
+  height: 484rpx;
+}
+.content .check-in .text.data-v-bf3ed874 {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 126rpx;
+}
+.content .check-in .text .en.data-v-bf3ed874 {
+  font-size: 32rpx;
+  font-family: PingFangSC, PingFangSC-Semibold;
+  font-weight: 600;
+  text-align: center;
+  color: #394042;
+  line-height: 44rpx;
+}
+.content .check-in .text .cn.data-v-bf3ed874 {
+  font-size: 26rpx;
+  font-family: 'Didot-bold';
+  text-align: center;
+  color: #394042;
+  line-height: 38rpx;
+}
+.content .check-in .text .img.data-v-bf3ed874 {
+  width: 128rpx;
+  height: 128rpx;
+  margin-top: 30rpx;
+}
+

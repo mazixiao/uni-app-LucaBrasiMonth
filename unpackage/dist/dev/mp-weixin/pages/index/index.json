@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "van-button": "/wxcomponents/vant/dist/button/index",
+    "van-toast": "/wxcomponents/vant/dist/toast/index",
+    "headers": "/components/headers",
+    "tabbar": "/components/tabbar"
+  }
+}

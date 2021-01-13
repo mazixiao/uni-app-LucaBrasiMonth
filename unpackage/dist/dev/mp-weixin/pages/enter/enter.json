@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "进入页",
+  "usingComponents": {
+    "headers": "/components/headers",
+    "tabbar": "/components/tabbar"
+  }
+}

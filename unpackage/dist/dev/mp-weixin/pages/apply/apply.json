@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "apply",
+  "usingComponents": {
+    "headers": "/components/headers",
+    "tabbar": "/components/tabbar"
+  }
+}

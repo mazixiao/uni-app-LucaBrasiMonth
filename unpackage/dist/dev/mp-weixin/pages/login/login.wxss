@@ -1,0 +1,155 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* pages/login/login.wxss */
+.content.data-v-b237504c {
+  padding-top: 316rpx;
+}
+.content .login-text.data-v-b237504c {
+  text-align: center;
+}
+.content .login-text .login-text.data-v-b237504c {
+  width: 460rpx;
+  height: 164rpx;
+  display: block;
+  margin: 0 auto;
+}
+.content .section.data-v-b237504c {
+  width: 638rpx;
+  margin: 0 auto;
+  margin-top: 132rpx;
+}
+.content .section .form .inputs.data-v-b237504c {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+.content .section .form .inputs .input-wrap.data-v-b237504c {
+  width: 100%;
+  position: relative;
+  /* margin-bottom: 50rpx; */
+}
+.content .section .form .inputs .input-wrap.data-v-b237504c:last-child {
+  /* margin-bottom: 0; */
+}
+.content .section .form .inputs .input-wrap input.data-v-b237504c {
+  width: 100%;
+  height: 96rpx;
+  background: #ffffff;
+  border-radius: 48rpx;
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
+  padding-left: 100rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #8f9198;
+}
+.content .section .form .inputs .input-wrap .icon.data-v-b237504c {
+  width: 56rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 28rpx;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.content .section .form .inputs .input-wrap .send.data-v-b237504c {
+  width: 164rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: -webkit-linear-gradient(right, #9c528a, #d7778c);
+  background: linear-gradient(270deg, #9c528a, #d7778c);
+  border: 0rpx solid #c86b6e;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC, PingFangSC-Medium;
+  font-weight: 500;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 28rpx;
+  z-index: 2;
+}
+.content .section .form .inputs .input-wrap .send.active.data-v-b237504c {
+  background: #DBDBDB !important;
+  border-color: #DBDBDB !important;
+}
+.content .section .form .inputs .error.data-v-b237504c {
+  font-size: 24rpx;
+  font-family: PingFangSC, PingFangSC-Light;
+  font-weight: 300;
+  text-align: right;
+  color: #e84135;
+  line-height: 34rpx;
+  margin-top: 4rpx;
+  margin-bottom: 12rpx;
+  opacity: 0;
+}
+.content .section .form .inputs .error.active.data-v-b237504c {
+  opacity: 1;
+}
+.content .section .form .loginBtn.data-v-b237504c {
+  width: 100%;
+  height: 94rpx;
+  background: -webkit-linear-gradient(315deg, #bc6189 17%, #dd7c8d 34%, #9d528a 76%, #d5bad3 94%);
+  background: linear-gradient(135deg, #bc6189 17%, #dd7c8d 34%, #9d528a 76%, #d5bad3 94%);
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.content .support.data-v-b237504c {
+  width: 100%;
+  font-size: 20rpx;
+  font-family: PingFangSC, PingFangSC-Light;
+  font-weight: 300;
+  text-align: center;
+  color: #8f9198;
+  line-height: 28rpx;
+  position: absolute;
+  left: 0;
+  bottom: 48rpx;
+}
+.textssss.data-v-b237504c {
+  font-family: 'Didot';
+}
+.textssss22.data-v-b237504c {
+  font-family: 'Didot-italic';
+}
+

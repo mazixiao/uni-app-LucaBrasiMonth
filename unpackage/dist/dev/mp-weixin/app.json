@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/enter/enter",
+    "pages/index/index",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/apply/apply",
+    "pages/applyList/applyList",
+    "pages/QRCode/QRCode",
+    "pages/checkState/checkState",
+    "pages/checkInDetail/checkInDetail",
+    "pages/scanPeople/scanPeople",
+    "pages/scanCheckInDetail/scanCheckInDetail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#8f9198",
+    "selectedColor": "9c528a",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/images/link-icon1.png",
+        "selectedIconPath": "/static/images/link-icon1-hover.png"
+      },
+      {
+        "pagePath": "pages/scanPeople/scanPeople",
+        "text": "首页",
+        "iconPath": "/static/images/link-icon1.png",
+        "selectedIconPath": "/static/images/link-icon1-hover.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/static/images/link-icon2.png",
+        "selectedIconPath": "/static/images/link-icon2-hover.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap5.json"
+}
