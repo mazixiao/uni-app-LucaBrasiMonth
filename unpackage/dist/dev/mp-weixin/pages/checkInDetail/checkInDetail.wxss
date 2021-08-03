@@ -125,6 +125,7 @@
 .content .check-info .nail.data-v-5715b944 {
   width: 20rpx;
   height: 40rpx;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f7e9ef), to(#eaadbd));
   background: -webkit-linear-gradient(top, #f7e9ef 1%, #eaadbd);
   background: linear-gradient(180deg, #f7e9ef 1%, #eaadbd);
   border-radius: 20rpx;
@@ -136,6 +137,7 @@
 .content .check-info .nail.nail2.data-v-5715b944 {
   width: 20rpx;
   height: 40rpx;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f7e9ef), to(#eaadbd));
   background: -webkit-linear-gradient(top, #f7e9ef 1%, #eaadbd);
   background: linear-gradient(180deg, #f7e9ef 1%, #eaadbd);
   border-radius: 20rpx;

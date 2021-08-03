@@ -38,6 +38,8 @@
 		</view>
 		<van-toast id="van-toast" />
 		<van-button type="primary" @click="showToast">测试vant轻提示</van-button>
+		
+		<navigator url="/subpackage1/pages/test/test" hover-class="navigator-hover">跳转到分包页面</navigator>
 	</view>
 </template>
 

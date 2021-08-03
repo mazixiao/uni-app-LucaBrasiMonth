@@ -12,7 +12,14 @@
     "pages/scanPeople/scanPeople",
     "pages/scanCheckInDetail/scanCheckInDetail"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "subpackage1",
+      "pages": [
+        "pages/test/test"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -46,6 +53,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap5.json"
+  "usingComponents": {}
 }

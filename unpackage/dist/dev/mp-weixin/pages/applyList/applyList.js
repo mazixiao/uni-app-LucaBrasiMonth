@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 106));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 114));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 121));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 

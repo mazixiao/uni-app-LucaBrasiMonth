@@ -14,7 +14,7 @@
 				"usingComponents": {
 					"van-button": "/wxcomponents/vant/dist/button/index",
 					"van-toast": "/wxcomponents/vant/dist/toast/index"
-					
+
 				}
 			}
 
@@ -131,7 +131,19 @@
 				"selectedIconPath": "/static/images/link-icon2-hover.png"
 			}
 		]
-	}
+	},
+
+	"subPackages": [{
+		"root": "subpackage1", //文件夹名称，  pages文件夹同级新建一个就行
+		"pages": [{
+			"path": "pages/test/test",
+			"style": {
+				"navigationBarTitleText": "测试分包",
+				"navigationBarTextStyle": "white"
+			}
+		}]
+	}]
+
 
 
 }

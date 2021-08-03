@@ -152,7 +152,8 @@
 	text-align: center;
 	height: 44px;
 	position: relative;
-	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	        box-sizing: content-box;
 }
 .textView {
 	height: 44px;

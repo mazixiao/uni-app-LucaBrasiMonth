@@ -178,7 +178,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _toast = _interopRequireDefault(__webpack_require__(/*! ../../wxcomponents/vant/dist/toast/toast */ 30));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 106));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ../../wxcomponents/vant/dist/toast/toast */ 30));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 114));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 121));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 var mdCode = __webpack_require__(/*! ../../utils/md5.js */ 10);
