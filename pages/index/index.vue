@@ -40,11 +40,16 @@
 		<van-button type="primary" @click="showToast">测试vant轻提示</van-button>
 		
 		<navigator url="/subpackage1/pages/test/test" hover-class="navigator-hover">跳转到分包页面</navigator>
+		{{hasLogin}}
+		<br>
+		{{getStateCount1}}
+		<br>
+		{{doneTodosCount.a}}
 	</view>
 </template>
 
 <script>
-	// import { Button, Tab, Tabs, List, Cell, Loading, Swipe, SwipeItem } from "vant";
+	import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 	import headers from "../../components/headers.vue";
 
 	import tabbar from '../../components/tabbar.vue';
@@ -76,6 +81,13 @@
 
 			}
 		},
+
+		computed: {
+			...mapState(['userInfo1', 'hasLogin']),
+			...mapGetters(["getStateCount1", "doneTodosCount"])
+		},
+
+		
 		onLoad() {
 
 		
@@ -86,7 +98,9 @@
 
 			uni.hideTabBar({
 				animation: false
-			})
+			});
+			
+			this.isLoginFun();
 
 			// 更改顶部文字颜色
 			// uni.setNavigationBarColor({
@@ -97,6 +111,15 @@
 
 		},
 		methods: {
+			...mapMutations(['login']),
+			
+		  isLoginFun() {
+		      //调用 ...mapMutations(['addNum', "count2Fun"])里的方法
+		      // 意思是把 mutations 的方法 写到你当前组件的this中，你在组件内就可以直接通过 this.xxx 来找到这个Mutation方法
+		      this.login();
+		    },
+			
+			
 			showToast() {
 					Toast('测试vant轻提示');
 			},
