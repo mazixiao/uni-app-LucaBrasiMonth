@@ -5,21 +5,19 @@ const store = new Vuex.Store({
 	state: {
 		hasLogin: false,
 		userInfo1: {},
-		count1: 0
+		count1: 0,
+		message: "dsdc"
 	},
 	getters: {
 		doneTodosCount: (state, getters) => { //通过属性访问
-		
-		
-			return state.userInfo1 = {a: 1000}
+			return state.userInfo1 = {
+				a: 1000
+			}
 		},
-		
-		
-		       getStateCount1: state => {
-		            return state.count1 + 88;
-		        }
-		
 
+		getStateCount1: state => {
+			return state.count1 + 88;
+		}
 	},
 	mutations: {
 		login(state, provider) {
@@ -31,6 +29,9 @@ const store = new Vuex.Store({
 			uni.removeStorage({
 				key: 'userInfo'
 			})
+		},
+		updateMessage(state, value) {
+			state.message = value.toUpperCase();
 		}
 	},
 	actions: {

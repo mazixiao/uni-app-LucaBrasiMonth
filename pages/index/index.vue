@@ -1,7 +1,8 @@
 <template>
 	<view class="content">
 
-		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff"></headers>
+		<headers title="YUANYUE" :show_logo="true" :show_bol="true" :show_title="false" backgroundColor="#fff">
+		</headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 		<tabbar navActive='0'></tabbar>
 		<image class="indexImg1" mode="" src='/static/images/index1.png'></image>
@@ -38,18 +39,25 @@
 		</view>
 		<van-toast id="van-toast" />
 		<van-button type="primary" @click="showToast">测试vant轻提示</van-button>
-		
+
 		<navigator url="/subpackage1/pages/test/test" hover-class="navigator-hover">跳转到分包页面</navigator>
 		{{hasLogin}}
 		<br>
 		{{getStateCount1}}
 		<br>
 		{{doneTodosCount.a}}
+		<br>
+		<input type="text" v-model="message">
 	</view>
 </template>
 
 <script>
-	import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+	import {
+		mapState,
+		mapGetters,
+		mapMutations,
+		mapActions
+	} from "vuex";
 	import headers from "../../components/headers.vue";
 
 	import tabbar from '../../components/tabbar.vue';
@@ -84,13 +92,25 @@
 
 		computed: {
 			...mapState(['userInfo1', 'hasLogin']),
-			...mapGetters(["getStateCount1", "doneTodosCount"])
+			...mapGetters(["getStateCount1", "doneTodosCount"]),
+			message: {
+				// 得到vuex中的初始值
+				get() {
+					console.log(this.$store.state.message, "this.$store.state.message");
+					return this.$store.state.message
+				},
+				// 设置值
+				set(value) {
+					console.log(value, "input的value")
+					this.$store.commit('updateMessage', value.toUpperCase())
+				}
+			}
 		},
 
-		
+
 		onLoad() {
 
-		
+
 
 			//获取全局变量
 			console.log(App.globalData.test);
@@ -99,7 +119,7 @@
 			uni.hideTabBar({
 				animation: false
 			});
-			
+
 			this.isLoginFun();
 
 			// 更改顶部文字颜色
@@ -112,16 +132,16 @@
 		},
 		methods: {
 			...mapMutations(['login']),
-			
-		  isLoginFun() {
-		      //调用 ...mapMutations(['addNum', "count2Fun"])里的方法
-		      // 意思是把 mutations 的方法 写到你当前组件的this中，你在组件内就可以直接通过 this.xxx 来找到这个Mutation方法
-		      this.login();
-		    },
-			
-			
+
+			isLoginFun() {
+				//调用 ...mapMutations(['addNum', "count2Fun"])里的方法
+				// 意思是把 mutations 的方法 写到你当前组件的this中，你在组件内就可以直接通过 this.xxx 来找到这个Mutation方法
+				this.login();
+			},
+
+
 			showToast() {
-					Toast('测试vant轻提示');
+				Toast('测试vant轻提示');
 			},
 			tabClick(index) {
 				console.log('返回tabBar索引：' + index)

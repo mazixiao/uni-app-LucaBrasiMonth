@@ -25,6 +25,8 @@
 				<view :class="['btn2', {'exit': exit}]" v-else @click="LoginFun">登录</view>
 
 			</view>
+			<br>
+			<input type="text" v-model="message">
 			<view class="isLogin" v-if="isExit">
 				<view class="isLogin-con">
 					<image class="closes" @click="noExitFun" mode="" src='/static/images/close.png'></image>
@@ -47,6 +49,12 @@
 </template>
 
 <script>
+	import {
+		mapState,
+		mapGetters,
+		mapMutations,
+		mapActions
+	} from "vuex";
 	import headers from "../../components/headers.vue";
 	import tabbar from '../../components/tabbar.vue';
 
@@ -82,6 +90,25 @@
 				status: 1,
 			}
 		},
+		
+		computed: {
+			...mapState(['message', 'hasLogin']),
+			...mapGetters(["getStateCount1", "doneTodosCount"]),
+			message: {
+				// 得到vuex中的初始值
+				get() {
+					console.log(this.$store.state.message, "this.$store.state.message");
+					return this.$store.state.message
+				},
+				// 设置值
+				set(value) {
+					console.log(value, "input的value")
+					this.$store.commit('updateMessage', value.toUpperCase())
+				}
+			}
+		},
+		
+		
 		onLoad() {
 			uni.hideTabBar({
 				animation: false

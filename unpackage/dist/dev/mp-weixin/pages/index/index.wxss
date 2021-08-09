@@ -172,4 +172,7 @@
   background: -webkit-linear-gradient(right, #9c528a, #d7778c);
   background: linear-gradient(270deg, #9c528a, #d7778c);
 }
+input.data-v-57280228 {
+  border: 1px solid red;
+}
 
