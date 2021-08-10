@@ -1,0 +1,1 @@
+<view class="status-bar"><block wx:for="{{users}}" wx:for-item="user" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['change',['$0'],[[['users','',index]]]]]]]}}" bindtap="__e">{{user}}</view></block></view>

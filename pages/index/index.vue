@@ -48,6 +48,8 @@
 		{{doneTodosCount.a}}
 		<br>
 		<input type="text" v-model="message">
+		<br>
+		<component111 :users="users" v-on:changeParent="changeChildren"></component111>
 	</view>
 </template>
 
@@ -60,8 +62,11 @@
 	} from "vuex";
 	import headers from "../../components/headers.vue";
 
+
 	import tabbar from '../../components/tabbar.vue';
 	import Toast from '../../wxcomponents/vant/dist/toast/toast';
+
+	import component111 from "../../components/component111.vue";
 
 
 	const mdCode = require('../../utils/md5.js');
@@ -73,6 +78,7 @@
 		components: {
 			headers,
 			tabbar,
+			component111,
 			// 当前tab高亮索引
 		},
 
@@ -86,6 +92,8 @@
 				isIphoneX_: App.globalData.isIphoneX,
 				// 是否登录
 				isLogin: false,
+				
+				users: [1, 2, 3,4]
 
 			}
 		},
@@ -127,6 +135,14 @@
 			// 	frontColor: "#ffffff",	//文字颜色
 			// 	backgroundColor: "#007AFF"	//底部背景色
 			// })
+
+			try {
+				console.log(new Date())
+			} catch (e) {
+				// console.log(err, "err");
+				console.log(e.toLocaleString())
+			}
+
 
 
 		},
@@ -179,6 +195,11 @@
 					url: '../login/login'
 				})
 			},
+			
+			changeChildren(e) {
+				console.log(e, "eee");
+				this.users.push(e)
+			}
 
 		},
 

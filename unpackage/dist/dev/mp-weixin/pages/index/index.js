@@ -184,6 +184,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _vuex = __webpack_require__(/*! vuex */ 17);
 
 
@@ -193,7 +195,10 @@ var _vuex = __webpack_require__(/*! vuex */ 17);
 
 
 
-var _toast = _interopRequireDefault(__webpack_require__(/*! ../../wxcomponents/vant/dist/toast/toast */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 123));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ../../wxcomponents/vant/dist/toast/toast */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 123));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var component111 = function component111() {__webpack_require__.e(/*! require.ensure | components/component111 */ "components/component111").then((function () {return resolve(__webpack_require__(/*! ../../components/component111.vue */ 130));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+
 
 
 var mdCode = __webpack_require__(/*! ../../utils/md5.js */ 10);
@@ -204,7 +209,8 @@ var App = getApp();var _default =
   name: "index",
   components: {
     headers: headers,
-    tabbar: tabbar
+    tabbar: tabbar,
+    component111: component111
     // 当前tab高亮索引
   },
 
@@ -217,7 +223,9 @@ var App = getApp();var _default =
       canIUse: wx.canIUse('button.open-type.getUserInfo'),
       isIphoneX_: App.globalData.isIphoneX,
       // 是否登录
-      isLogin: false };
+      isLogin: false,
+
+      users: [1, 2, 3, 4] };
 
 
   },
@@ -259,6 +267,14 @@ var App = getApp();var _default =
     // 	frontColor: "#ffffff",	//文字颜色
     // 	backgroundColor: "#007AFF"	//底部背景色
     // })
+
+    try {
+      console.log(new Date());
+    } catch (e) {
+      // console.log(err, "err");
+      console.log(e.toLocaleString());
+    }
+
 
 
   },
@@ -310,6 +326,11 @@ var App = getApp();var _default =
       uni.navigateTo({
         url: '../login/login' });
 
+    },
+
+    changeChildren: function changeChildren(e) {
+      console.log(e, "eee");
+      this.users.push(e);
     } }),
 
 

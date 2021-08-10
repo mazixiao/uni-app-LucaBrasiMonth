@@ -4,6 +4,7 @@
     "van-button": "/wxcomponents/vant/dist/button/index",
     "van-toast": "/wxcomponents/vant/dist/toast/index",
     "headers": "/components/headers",
-    "tabbar": "/components/tabbar"
+    "tabbar": "/components/tabbar",
+    "component111": "/components/component111"
   }
 }
