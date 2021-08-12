@@ -1,6 +1,7 @@
 {
-  "navigationBarTitleText": "活动报名",
+  "navigationBarTitleText": "报名记录",
   "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "headers": "/components/headers",
     "tabbar": "/components/tabbar"

@@ -2,18 +2,19 @@
 	<view>
 
 
-		<headers title="报名纪录" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true"
-		 :backgroundColor="'linear-gradient(135deg,#9c528a, #d7778c 99%)'"></headers>
+		<headers title="报名纪录" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff"
+			:GoBackWhite="true" :backgroundColor="'linear-gradient(135deg,#9c528a, #d7778c 99%)'"></headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 
-		<view :class="['content', {'isIphoneX_': isIphoneX_}]" :style="{'min-height': 'calc(100vh - ' + (bar_Height + 45) + 'px)'}">
+		<view :class="['content', {'isIphoneX_': isIphoneX_}]"
+			:style="{'min-height': 'calc(100vh - ' + (bar_Height + 45) + 'px)'}">
 			<view class='noyyWrap' :style="{'display':displayI}">
 				<image class='noyy' src='/static/images/noyy.png'></image>
 				<view class="noyyTitle">暂无团队预约信息</view>
 			</view>
 
 			<view class="apply-wrap" :style="{'display':displayN}">
-				<view class="item" v-for='(item, index) in albumList' :key="id">
+				<view class="item" v-for='(item, index) in albumList' :key="item.id">
 					<view class="head-portrait">
 						<image class="pic" v-if="item.headportrait" :src='item.headportrait'></image>
 						<image class="pic" v-else src='/static/images/DefaultAvatar.png'></image>
@@ -69,16 +70,29 @@
 				displayN: '',
 				ToLoad: '',
 				albumList: [],
-				isDelegateArray: [],
 				page: 0,
 				allPage: ''
 			}
 		},
 		onLoad() {
-			this.albumList = [];
-			this.allAlbum = [];
-			this.getAlbum(0, 10)
+			// this.albumList = [];
+			this.applyList(0, 10)
 		},
+
+		// 下拉刷新
+		onPullDownRefresh() {
+			// uni.startPullDownRefresh();
+			console.log('刷新');
+
+			this.allPage = "";
+			this.displayI = "";
+			this.displayN = "";
+			this.ToLoad = "";
+			this.albumList = [];
+
+			this.refreshApplyList(0, 10);
+		},
+
 		methods: {
 			checkFun(e) {
 				console.log(e.currentTarget.dataset.id, "item");
@@ -121,8 +135,8 @@
 				})
 			},
 
-			// 商家相册列表
-			getAlbum(page, size) {
+			// 报名记录列表
+			applyList(page, size) {
 				var that = this;
 				let wMsgID = desCode.wMsgID();
 				let wParam = desCode.to3des(`userid=${App.globalData.UserID}_page=${page}_size=${size}`);
@@ -155,12 +169,72 @@
 						}
 						this.allPage = res.PageCount;
 						if (loadLength > 0) {
-							let isDelegateArr = []
 							res.Data.map((item, index) => {
 								item.participantstime = this.sub(item.participantstime)
 							});
 							this.albumList = this.albumList.concat(res.Data);
-							this.isDelegateArray = isDelegateArr;
+
+
+						}
+					} else if (res.ReturnCode == 110) {
+						console.log("空数据");
+						that.ToLoad = 'none'
+					}
+				})
+			},
+
+			// https://www.jianshu.com/p/eb24c489027a
+			// uni-app 实现下拉刷新功能
+			// 刷新
+			refreshApplyList(page, size) {
+
+
+				// displayI: '',
+				// displayN: '',
+				// ToLoad: '',
+				// albumList: [],
+				// page: 0,
+				// allPage: ''
+
+				var that = this;
+				let wMsgID = desCode.wMsgID();
+				let wParam = desCode.to3des(`userid=${App.globalData.UserID}_page=${page}_size=${size}`);
+				let md = mdCode.hexMD5('9999' + '108' + wMsgID + wParam + 'q1w2e3r4t5y6');
+				const data = {
+					wAgent: 9999,
+					wAction: 108,
+					wMsgID: wMsgID,
+					wParam: wParam,
+					wSign: md,
+					wImei: 222,
+					wVersion: 2,
+					wRequestUserID: 4
+				}
+				api_js.postReq(data, (res) => {
+					//数据请求完成之后停止下拉刷新
+					uni.stopPullDownRefresh();
+					console.log(res);
+					if (res.ReturnCode == 0) {
+						if (res.Data != '') {
+							this.displayI = 'none';
+							this.displayN = '';
+						} else {
+							this.displayI = '';
+							this.displayN = 'none';
+						}
+						var loadLength = res.Data.length
+						if (loadLength <= 9) {
+							this.ToLoad = '';
+						} else {
+							this.ToLoad = 'none';
+						}
+						this.allPage = res.PageCount;
+						if (loadLength > 0) {
+							res.Data.map((item, index) => {
+								item.participantstime = this.sub(item.participantstime)
+							});
+							this.albumList = this.albumList.concat(res.Data);
+
 						}
 					} else if (res.ReturnCode == 110) {
 						console.log("空数据");
@@ -186,10 +260,11 @@
 		 * 页面上拉触底事件的处理函数
 		 */
 		onReachBottom() {
+			console.log(11)
 			var that = this;
 			if (that.page < that.allPage - 1) {
 				that.page = that.page + 1;
-				that.getAlbum(that.page, 10)
+				that.applyList(that.page, 10)
 			} else {
 				that.ToLoad = '';
 			}
