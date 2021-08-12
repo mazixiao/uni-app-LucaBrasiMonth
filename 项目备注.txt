@@ -15,4 +15,11 @@ wx0d9e61c314daa04e
 
 
 
+ 解决 OpenSSL SSL_read: Connection was aborted, errno 10053 报错
+
+git config --global http.sslVerify "false"
+
+
+
+
 
