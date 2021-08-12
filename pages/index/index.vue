@@ -38,7 +38,7 @@
 			</view>
 		</view>
 		<van-toast id="van-toast" />
-		<van-button type="primary" @click="showToast">测试vant轻提示</van-button>
+		<van-button type="primary" @click="showToast">测试vant轻提示和测试防止重复提交</van-button>
 
 		<navigator url="/subpackage1/pages/test/test" hover-class="navigator-hover">跳转到分包页面</navigator>
 		{{hasLogin}}
@@ -92,8 +92,10 @@
 				isIphoneX_: App.globalData.isIphoneX,
 				// 是否登录
 				isLogin: false,
-				
-				users: [1, 2, 3,4]
+
+				users: [1, 2, 3, 4],
+
+				isclick: true,
 
 			}
 		},
@@ -145,9 +147,56 @@
 
 
 
+
+
+
 		},
 		methods: {
 			...mapMutations(['login']),
+
+			// 防止重复提交
+			showToast() {
+				if (this.isclick) {
+					Toast('测试防止重复提交');
+					let that = this;
+					this.isclick = false;
+					// console.log(this.isclick, "this.isclick");
+					// setTimeout(function() {
+					// 	that.isclick = true;
+					// }, 6000)
+
+					this.getAlbum(0, 21);
+				}
+			},
+
+			getAlbum(page, size) {
+				var that = this;
+				let wMsgID = desCode.wMsgID();
+				let wParam = desCode.to3des(`userid=${App.globalData.UserID}_page=${page}_size=${size}`);
+				let md = mdCode.hexMD5('9999' + '108' + wMsgID + wParam + 'q1w2e3r4t5y6');
+				const data = {
+					wAgent: 9999,
+					wAction: 108,
+					wMsgID: wMsgID,
+					wParam: wParam,
+					wSign: md,
+					wImei: 222,
+					wVersion: 2,
+					wRequestUserID: 4
+				}
+				api_js.postReq(data, (res) => {
+					console.log(res, "108列表数据");
+					// that.isclick = true;
+					
+					setTimeout(function() {
+						that.isclick = true;
+					}, 6000)
+					
+				})
+			},
+
+
+
 
 			isLoginFun() {
 				//调用 ...mapMutations(['addNum', "count2Fun"])里的方法
@@ -156,9 +205,6 @@
 			},
 
 
-			showToast() {
-				Toast('测试vant轻提示');
-			},
 			tabClick(index) {
 				console.log('返回tabBar索引：' + index)
 				this.currentTabIndex = index
@@ -195,11 +241,11 @@
 					url: '../login/login'
 				})
 			},
-			
+
 			changeChildren(e) {
 				console.log(e, "eee");
 				this.users.push(e)
-			}
+			},
 
 		},
 

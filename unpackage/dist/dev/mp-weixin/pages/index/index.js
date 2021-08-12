@@ -225,7 +225,9 @@ var App = getApp();var _default =
       // 是否登录
       isLogin: false,
 
-      users: [1, 2, 3, 4] };
+      users: [1, 2, 3, 4],
+
+      isclick: true };
 
 
   },
@@ -277,9 +279,56 @@ var App = getApp();var _default =
 
 
 
+
+
+
   },
   methods: _objectSpread(_objectSpread({},
   (0, _vuex.mapMutations)(['login'])), {}, {
+
+    // 防止重复提交
+    showToast: function showToast() {
+      if (this.isclick) {
+        (0, _toast.default)('测试防止重复提交');
+        var that = this;
+        this.isclick = false;
+        // console.log(this.isclick, "this.isclick");
+        // setTimeout(function() {
+        // 	that.isclick = true;
+        // }, 6000)
+
+        this.getAlbum(0, 21);
+      }
+    },
+
+    getAlbum: function getAlbum(page, size) {
+      var that = this;
+      var wMsgID = desCode.wMsgID();
+      var wParam = desCode.to3des("userid=".concat(App.globalData.UserID, "_page=").concat(page, "_size=").concat(size));
+      var md = mdCode.hexMD5('9999' + '108' + wMsgID + wParam + 'q1w2e3r4t5y6');
+      var data = {
+        wAgent: 9999,
+        wAction: 108,
+        wMsgID: wMsgID,
+        wParam: wParam,
+        wSign: md,
+        wImei: 222,
+        wVersion: 2,
+        wRequestUserID: 4 };
+
+      api_js.postReq(data, function (res) {
+        console.log(res, "108列表数据");
+        // that.isclick = true;
+
+        setTimeout(function () {
+          that.isclick = true;
+        }, 6000);
+
+      });
+    },
+
+
+
 
     isLoginFun: function isLoginFun() {
       //调用 ...mapMutations(['addNum', "count2Fun"])里的方法
@@ -288,9 +337,6 @@ var App = getApp();var _default =
     },
 
 
-    showToast: function showToast() {
-      (0, _toast.default)('测试vant轻提示');
-    },
     tabClick: function tabClick(index) {
       console.log('返回tabBar索引：' + index);
       this.currentTabIndex = index;

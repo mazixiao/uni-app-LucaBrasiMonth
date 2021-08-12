@@ -29,6 +29,30 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/checkState/checkState",
+          "pathName": "pages/checkState/checkState",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/checkState/checkState",
+          "pathName": "pages/checkState/checkState",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/checkState/checkState",
+          "pathName": "pages/checkState/checkState",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/checkState/checkState",
+          "pathName": "pages/checkState/checkState",
+          "query": "",
+          "scene": null
         }
       ]
     }
