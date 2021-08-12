@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<headers title="签到详情" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff"
+		<headers title="分包页面" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff"
 			:GoBackWhite="true" :backgroundColor="'linear-gradient(135deg,#9c528a, #d7778c 99%)'"></headers>
 		<view class="aa" :style="{'padding-top': bar_Height + 45 + 'px','background':  '#ffffff'}"></view>
 

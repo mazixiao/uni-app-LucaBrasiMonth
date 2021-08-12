@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "apply",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "headers": "/components/headers",
     "tabbar": "/components/tabbar"

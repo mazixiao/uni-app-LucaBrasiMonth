@@ -25,13 +25,13 @@
 /* 透明度 */
 /* 文章场景相关 */
 /* pages/enter/enter.wxss */
-.content.data-v-a9f4e7bc {
+.content.data-v-0a5b2f9e {
   min-height: 100vh;
   width: 100%;
   /* background-color: red; */
   position: relative;
 }
-.imgs.data-v-a9f4e7bc {
+.imgs.data-v-0a5b2f9e {
   width: 100%;
 }
 

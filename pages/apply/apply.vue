@@ -1,6 +1,7 @@
 <template>
 	<view class="">
-		<headers title="活动报名" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff" :GoBackWhite="true"></headers>
+		<headers title="活动报名" :show_logo="true" :show_bol="false" :show_title="true" titleColor="#fff"
+			:GoBackWhite="true"></headers>
 		<view :class="['content', {'isIphoneX_': isIphoneX_}]">
 			<view class="apply-top">
 				<image class="applyImg" mode="" src='/static/images/apply1.png'></image>
@@ -14,28 +15,30 @@
 				<form @submit="formSubmit" class='form'>
 					<view class="inputs">
 						<view class="input-wrap">
-							<input type="text" placeholder-style="color: #b0b0b0;" placeholder="请填写真实姓名" v-model.trim='name' @input="checkName(name)" />
+							<input type="text" placeholder-style="color: #b0b0b0;" placeholder="请填写真实姓名"
+								v-model.trim='name' @input="checkName(name)" />
 							<text class="required">*</text>
 							<view :class="['error', {'active': errorName}]">请填写姓名</view>
 						</view>
 						<view class="input-wrap">
-							<input type="number" placeholder-style="color: #b0b0b0;" placeholder="请填写手机号" v-model.trim='phone' @input="checkPhoness2(phone)"
-							 maxlength="11" />
+							<input type="number" placeholder-style="color: #b0b0b0;" placeholder="请填写手机号"
+								v-model.trim='phone' @input="checkPhoness2(phone)" maxlength="11" />
 							<text class="required">*</text>
 							<view :class="['error', {'active': errorPhone}]">请填写正确的手机号</view>
 						</view>
 						<view class="input-wrap haveShadow" @click="activeVenueShowFun">
-							<input type="text" placeholder-style="color: #b0b0b0;" placeholder="请选择会场|日期" v-model.trim='houseList2[house].tile' />
+							<input type="text" placeholder-style="color: #b0b0b0;" placeholder="请选择会场|日期"
+								v-model.trim='houseList2[house].tile' />
 							<text class="required">*</text>
 							<view :class="['error', {'active': errorHouse}]">请选择会场|日期</view>
 							<image class="icon" mode="" src='/static/images/moreIcon.png'></image>
 						</view>
 						<view class="input-wrap haveTextarea">
 							<view class="textarea-tit">备注（选填）</view>
-							<textarea maxlength="140" @input="checkHouse(remark)" placeholder-style="color: #b0b0b0;" v-model.trim='remark'
-							 placeholder="仅限140字内…" />
+							<textarea maxlength="140" @input="checkHouse(remark)" placeholder-style="color: #b0b0b0;"
+								v-model.trim='remark' placeholder="仅限140字内…" />
 
-							</view>
+						</view>
 					</view>
 					<button form-type='submit' class="commitBtn">提 交</button>
 				</form>
@@ -54,12 +57,13 @@
 						<view class="topCancelBtn" @click="cancel">取消</view>
 					</view>
 					<!-- 选择区域 -->
-					     <scroll-view class="tabelView" scroll-y="true">
-        <view :class="['register', {'active': house == index}]" v-for='(item, index) in houseList2' :key="id" @click="activeVenueFun(index)">
-          <view class="text">{{item.tile}}</view>
-          <image class="itmeSelectImage" src="/static/images/gou.png"></image>
-        </view>
-      </scroll-view>
+					<scroll-view class="tabelView" scroll-y="true">
+						<view :class="['register', {'active': house == index}]" v-for='(item, index) in houseList2'
+							:key="id" @click="activeVenueFun(index)">
+							<view class="text">{{item.tile}}</view>
+							<image class="itmeSelectImage" src="/static/images/gou.png"></image>
+						</view>
+					</scroll-view>
 				</view>
 			</view>
 		</view>
@@ -135,8 +139,64 @@
 		onLoad() {
 			uni.hideTabBar({
 				animation: false
-			})
+			});
+
+			//     // 将这个页面的数据返回到上一个页面
+			//     var pages = getCurrentPages();            //  获取页面栈
+			//     var currPage = pages[pages.length - 1];   // 当前页面
+			//     var prevPage = pages[pages.length - 2];   // 上一个页面
+			//     prevPage.setData({
+			//       page: options.page
+			//     })
+
+			// 小程序更改上一个页面的数据
+			
+		
 		},
+
+		onShow() {
+			console.log('页面显示');
+			
+			
+			
+			// // 调用上一个页面方法
+			// var pages = getCurrentPages();
+			// var prevPage = pages[pages.length - 2];
+			// prevPage.$vm.parentFun(1)
+			// console.log(pages)
+			// 关闭当前页面 返回详细信息页面
+			// uni.navigateBack()
+
+			
+			
+		},
+
+		onHide() {
+			console.log('页面隐藏')
+		},
+		
+
+		
+		// beforeDestroy() {
+		// 	console.log('页面隐藏333');
+		// 	var pages = getCurrentPages();
+		// 	var prevPage = pages[pages.length - 2];
+		// 	prevPage.$vm.parentFun()
+		// 	console.log(pages)
+		// },
+		
+		
+		onUnload() {
+			console.log("页面卸载");
+			var pages = getCurrentPages();
+			var prevPage = pages[pages.length - 2];
+			prevPage.$vm.parentFun()
+			console.log(pages)
+		},
+
+
+
+
 		methods: {
 
 			// 姓名验证

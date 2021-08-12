@@ -40,15 +40,16 @@
 		<van-toast id="van-toast" />
 		<van-button type="primary" @click="showToast">测试vant轻提示和测试防止重复提交</van-button>
 
-		<navigator url="/subpackage1/pages/test/test" hover-class="navigator-hover">跳转到分包页面</navigator>
+		<navigator url="/packageA/pages/test/test" hover-class="navigator-hover">跳转到分包页面</navigator>
 		{{hasLogin}}
 		<br>
 		{{getStateCount1}}
 		<br>
 		{{doneTodosCount.a}}
 		<br>
-		<input type="text" v-model="message">
+		vuex配合本地存储:<input type="text" v-model="message">
 		<br>
+		prop组件传值(父组件向子组件传值):
 		<component111 :users="users" v-on:changeParent="changeChildren"></component111>
 	</view>
 </template>
@@ -96,6 +97,8 @@
 				users: [1, 2, 3, 4],
 
 				isclick: true,
+				
+				add: 10,
 
 			}
 		},
@@ -147,7 +150,7 @@
 
 
 
-
+			this.parentFun();
 
 
 		},
@@ -246,6 +249,11 @@
 				console.log(e, "eee");
 				this.users.push(e)
 			},
+			
+			parentFun() {
+				this.add = this.add + 10;
+				console.log(this.add)
+			}
 
 		},
 

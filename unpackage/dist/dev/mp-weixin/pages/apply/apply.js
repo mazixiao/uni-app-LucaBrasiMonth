@@ -212,6 +212,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var mdCode = __webpack_require__(/*! ../../utils/md5.js */ 10);
 var desCode = __webpack_require__(/*! ../../utils/aesUtil.js */ 8);
 var api_js = __webpack_require__(/*! ../../utils/api.js */ 11);
@@ -268,7 +272,63 @@ var App = getApp();var _default =
     uni.hideTabBar({
       animation: false });
 
+
+    //     // 将这个页面的数据返回到上一个页面
+    //     var pages = getCurrentPages();            //  获取页面栈
+    //     var currPage = pages[pages.length - 1];   // 当前页面
+    //     var prevPage = pages[pages.length - 2];   // 上一个页面
+    //     prevPage.setData({
+    //       page: options.page
+    //     })
+
+    // 小程序更改上一个页面的数据
+
+
   },
+
+  onShow: function onShow() {
+    console.log('页面显示');
+
+
+
+    // // 调用上一个页面方法
+    // var pages = getCurrentPages();
+    // var prevPage = pages[pages.length - 2];
+    // prevPage.$vm.parentFun(1)
+    // console.log(pages)
+    // 关闭当前页面 返回详细信息页面
+    // uni.navigateBack()
+
+
+
+  },
+
+  onHide: function onHide() {
+    console.log('页面隐藏');
+  },
+
+
+
+  // beforeDestroy() {
+  // 	console.log('页面隐藏333');
+  // 	var pages = getCurrentPages();
+  // 	var prevPage = pages[pages.length - 2];
+  // 	prevPage.$vm.parentFun()
+  // 	console.log(pages)
+  // },
+
+
+  onUnload: function onUnload() {
+    console.log("页面卸载");
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2];
+    prevPage.$vm.parentFun();
+    console.log(pages);
+  },
+
+
+
+
   methods: {
 
     // 姓名验证

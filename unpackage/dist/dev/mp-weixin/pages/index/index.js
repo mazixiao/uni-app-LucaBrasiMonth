@@ -186,6 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _vuex = __webpack_require__(/*! vuex */ 17);
 
 
@@ -227,7 +228,9 @@ var App = getApp();var _default =
 
       users: [1, 2, 3, 4],
 
-      isclick: true };
+      isclick: true,
+
+      add: 10 };
 
 
   },
@@ -279,7 +282,7 @@ var App = getApp();var _default =
 
 
 
-
+    this.parentFun();
 
 
   },
@@ -377,6 +380,11 @@ var App = getApp();var _default =
     changeChildren: function changeChildren(e) {
       console.log(e, "eee");
       this.users.push(e);
+    },
+
+    parentFun: function parentFun() {
+      this.add = this.add + 10;
+      console.log(this.add);
     } }),
 
 

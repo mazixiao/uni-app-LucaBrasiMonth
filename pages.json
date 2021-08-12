@@ -39,7 +39,8 @@
 		{
 			"path": "pages/apply/apply",
 			"style": {
-				"navigationBarTitleText": "apply"
+				"navigationBarTitleText": "apply",
+				"navigationBarTextStyle": "white"
 			}
 		},
 		{
@@ -134,7 +135,7 @@
 	},
 
 	"subPackages": [{
-		"root": "subpackage1", //文件夹名称，  pages文件夹同级新建一个就行
+		"root": "packageA", //文件夹名称，  pages文件夹同级新建一个就行
 		"pages": [{
 			"path": "pages/test/test",
 			"style": {
