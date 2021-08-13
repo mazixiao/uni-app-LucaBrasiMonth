@@ -82,7 +82,7 @@
 		// 下拉刷新
 		onPullDownRefresh() {
 			// uni.startPullDownRefresh();
-			console.log('刷新吧');
+			console.log('刷新吧~');
 
 			this.allPage = "";
 			this.displayI = "";
