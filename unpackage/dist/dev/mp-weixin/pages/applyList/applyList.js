@@ -214,7 +214,7 @@ var App = getApp();var _default =
   // 下拉刷新
   onPullDownRefresh: function onPullDownRefresh() {
     // uni.startPullDownRefresh();
-    console.log('刷新');
+    console.log('刷新吧');
 
     this.allPage = "";
     this.displayI = "";
