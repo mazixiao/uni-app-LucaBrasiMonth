@@ -81,7 +81,7 @@
 
 		// 下拉刷新
 		onPullDownRefresh() {
-			console.log('开启下拉刷新~');
+			console.log('开启下拉刷新~~~~');
 			this.page = 0;
 			this.allPage = "";
 			this.displayI = "";
