@@ -81,9 +81,8 @@
 
 		// 下拉刷新
 		onPullDownRefresh() {
-			// uni.startPullDownRefresh();
-			console.log('刷新吧~');
-
+			console.log('开启下拉刷新');
+			this.page = 0;
 			this.allPage = "";
 			this.displayI = "";
 			this.displayN = "";
@@ -187,15 +186,6 @@
 			// uni-app 实现下拉刷新功能
 			// 刷新
 			refreshApplyList(page, size) {
-
-
-				// displayI: '',
-				// displayN: '',
-				// ToLoad: '',
-				// albumList: [],
-				// page: 0,
-				// allPage: ''
-
 				var that = this;
 				let wMsgID = desCode.wMsgID();
 				let wParam = desCode.to3des(`userid=${App.globalData.UserID}_page=${page}_size=${size}`);

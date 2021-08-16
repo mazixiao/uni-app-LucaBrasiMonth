@@ -212,7 +212,6 @@
 
 			// 号码验证(手机)
 			checkPhoness(phone) {
-
 				if (!/^1[34578]\d{9}$/.test(phone)) {
 					this.errorPhone = true;
 					return false;
@@ -225,14 +224,11 @@
 
 
 			checkPhoness2(phone) {
-
 				if (!/^1[34578]\d{9}$/.test(phone)) {
-
 					if (phone.length == 0 || phone.length == 11) {
 						this.errorPhone = true;
 						return false;
 					}
-
 				} else {
 					this.errorPhone = false;
 					return true;
@@ -287,7 +283,6 @@
 
 
 			formSubmit() {
-
 				this.checkPhoness(this.phone);
 				this.checkName(this.name);
 				this.checkHouse(this.house);

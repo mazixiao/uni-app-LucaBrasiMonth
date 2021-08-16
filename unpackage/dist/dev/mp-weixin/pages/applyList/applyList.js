@@ -213,9 +213,8 @@ var App = getApp();var _default =
 
   // 下拉刷新
   onPullDownRefresh: function onPullDownRefresh() {
-    // uni.startPullDownRefresh();
-    console.log('刷新吧~');
-
+    console.log('开启下拉刷新');
+    this.page = 0;
     this.allPage = "";
     this.displayI = "";
     this.displayN = "";
@@ -319,15 +318,6 @@ var App = getApp();var _default =
     // uni-app 实现下拉刷新功能
     // 刷新
     refreshApplyList: function refreshApplyList(page, size) {var _this2 = this;
-
-
-      // displayI: '',
-      // displayN: '',
-      // ToLoad: '',
-      // albumList: [],
-      // page: 0,
-      // allPage: ''
-
       var that = this;
       var wMsgID = desCode.wMsgID();
       var wParam = desCode.to3des("userid=".concat(App.globalData.UserID, "_page=").concat(page, "_size=").concat(size));
