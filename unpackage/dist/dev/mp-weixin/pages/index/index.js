@@ -187,6 +187,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _vuex = __webpack_require__(/*! vuex */ 17);
 
 
@@ -287,7 +288,16 @@ var App = getApp();var _default =
 
   },
   methods: _objectSpread(_objectSpread({},
-  (0, _vuex.mapMutations)(['login'])), {}, {
+  (0, _vuex.mapMutations)(['login', 'userInfo1Add'])), {}, {
+    isLoginFun: function isLoginFun() {
+      //调用 ...mapMutations(['addNum', "count2Fun"])里的方法
+      // 意思是把 mutations 的方法 写到你当前组件的this中，你在组件内就可以直接通过 this.xxx 来找到这个Mutation方法
+      this.login();
+    },
+
+    userInfo1AddFun: function userInfo1AddFun() {
+      this.userInfo1Add();
+    },
 
     // 防止重复提交
     showToast: function showToast() {
@@ -333,11 +343,7 @@ var App = getApp();var _default =
 
 
 
-    isLoginFun: function isLoginFun() {
-      //调用 ...mapMutations(['addNum', "count2Fun"])里的方法
-      // 意思是把 mutations 的方法 写到你当前组件的this中，你在组件内就可以直接通过 this.xxx 来找到这个Mutation方法
-      this.login();
-    },
+
 
 
     tabClick: function tabClick(index) {

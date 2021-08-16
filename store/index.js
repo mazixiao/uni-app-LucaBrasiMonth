@@ -43,8 +43,17 @@ const store = new Vuex.Store({
 		updateMessage(state, value) {
 			state.message = value.toUpperCase();
 			uni.setStorageSync("message", state.message);
-			console.log(uni.getStorageSync("message"), "message-vuex")
+			console.log(uni.getStorageSync("message"), "message-vuex");
+			
+			console.log(state, "state");
+			console.log(value, "value");
+			
+		},
+		userInfo1Add(state, value) {
 
+			state.userInfo1.a = state.userInfo1.a + 1;
+			
+			// userInfo1.a
 		}
 	},
 	actions: {

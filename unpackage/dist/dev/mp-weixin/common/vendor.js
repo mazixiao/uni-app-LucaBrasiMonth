@@ -9358,6 +9358,15 @@ var store = new _vuex.default.Store({
       uni.setStorageSync("message", state.message);
       console.log(uni.getStorageSync("message"), "message-vuex");
 
+      console.log(state, "state");
+      console.log(value, "value");
+
+    },
+    userInfo1Add: function userInfo1Add(state, value) {
+
+      state.userInfo1.a = state.userInfo1.a + 1;
+
+      // userInfo1.a
     } },
 
   actions: {} });var _default =
