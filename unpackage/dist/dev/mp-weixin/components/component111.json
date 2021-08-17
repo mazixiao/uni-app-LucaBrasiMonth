@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "component111-component111-child-default": "/components/component111-component111-child-default",
+    "component111-child": "/components/component111Child"
+  },
   "component": true
 }

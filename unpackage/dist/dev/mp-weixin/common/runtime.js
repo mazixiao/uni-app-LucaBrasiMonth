@@ -109,7 +109,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/headers":"components/headers","components/tabbar":"components/tabbar","components/component111":"components/component111"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/headers":"components/headers","components/tabbar":"components/tabbar","components/component111":"components/component111","components/component111Child":"components/component111Child"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

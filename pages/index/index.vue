@@ -45,12 +45,11 @@
 		<br>
 		{{getStateCount1}}
 		<br>
-		<view @click="userInfo1AddFun">{{doneTodosCount.a}}</view>
-
+		{{doneTodosCount.a}}
 		<br>
 		vuex配合本地存储:<input type="text" v-model="message">
 		<br>
-		prop组件传值(父组件向子组件传值), (子组件向父组件传值 $emit)
+		prop组件传值(父组件向子组件传值):
 		<component111 :users="users" v-on:changeParent="changeChildren"></component111>
 	</view>
 </template>
@@ -98,7 +97,7 @@
 				users: [1, 2, 3, 4],
 
 				isclick: true,
-
+				
 				add: 10,
 
 			}
@@ -156,16 +155,7 @@
 
 		},
 		methods: {
-			...mapMutations(['login', 'userInfo1Add']),
-			isLoginFun() {
-				//调用 ...mapMutations(['addNum', "count2Fun"])里的方法
-				// 意思是把 mutations 的方法 写到你当前组件的this中，你在组件内就可以直接通过 this.xxx 来找到这个Mutation方法
-				this.login();
-			},
-
-			userInfo1AddFun() {
-				this.userInfo1Add();
-			},
+			...mapMutations(['login']),
 
 			// 防止重复提交
 			showToast() {
@@ -200,18 +190,22 @@
 				api_js.postReq(data, (res) => {
 					console.log(res, "108列表数据");
 					// that.isclick = true;
-
+					
 					setTimeout(function() {
 						that.isclick = true;
 					}, 6000)
-
+					
 				})
 			},
 
 
 
 
-
+			isLoginFun() {
+				//调用 ...mapMutations(['addNum', "count2Fun"])里的方法
+				// 意思是把 mutations 的方法 写到你当前组件的this中，你在组件内就可以直接通过 this.xxx 来找到这个Mutation方法
+				this.login();
+			},
 
 
 			tabClick(index) {
@@ -255,7 +249,7 @@
 				console.log(e, "eee");
 				this.users.push(e)
 			},
-
+			
 			parentFun() {
 				this.add = this.add + 10;
 				console.log(this.add)
