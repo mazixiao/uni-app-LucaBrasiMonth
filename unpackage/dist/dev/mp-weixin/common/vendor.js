@@ -282,10 +282,14 @@ var promiseInterceptor = {
     if (!isPromise(res)) {
       return res;
     }
-    return res.then(function (res) {
-      return res[1];
-    }).catch(function (res) {
-      return res[0];
+    return new Promise(function (resolve, reject) {
+      res.then(function (res) {
+        if (res[0]) {
+          reject(res[0]);
+        } else {
+          resolve(res[1]);
+        }
+      });
     });
   } };
 
@@ -872,7 +876,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -6549,7 +6553,7 @@ function initProps (vm, propsOptions) {
       defineReactive$$1(props, key, value, function () {
         if (!isRoot && !isUpdatingChildComponent) {
           {
-            if(vm.mpHost === 'mp-baidu'){//百度 observer 在 setData callback 之后触发，直接忽略该 warn
+            if(vm.mpHost === 'mp-baidu' || vm.mpHost === 'mp-kuaishou'){//百度、快手 observer 在 setData callback 之后触发，直接忽略该 warn
                 return
             }
             //fixed by xxxxxx __next_tick_pending,uni://form-field 时不告警
@@ -7456,7 +7460,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7477,14 +7481,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7570,7 +7574,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8008,9 +8012,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!*************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/pages.json ***!
-  \*************************************************************************/
+/*!****************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/pages.json ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8021,9 +8025,9 @@ module.exports = g;
 /* 6 */,
 /* 7 */,
 /* 8 */
-/*!*******************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/utils/aesUtil.js ***!
-  \*******************************************************************************/
+/*!**********************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/utils/aesUtil.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8071,9 +8075,9 @@ module.exports = {
 
 /***/ }),
 /* 9 */
-/*!***************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/utils/aes.js ***!
-  \***************************************************************************/
+/*!******************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/utils/aes.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8801,9 +8805,9 @@ module.exports = {
 
 /***/ }),
 /* 10 */
-/*!***************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/utils/md5.js ***!
-  \***************************************************************************/
+/*!******************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/utils/md5.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9070,9 +9074,9 @@ function binl2b64(binarray)
 
 /***/ }),
 /* 11 */
-/*!***************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/utils/api.js ***!
-  \***************************************************************************/
+/*!******************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/utils/api.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9120,9 +9124,9 @@ exports.postReq = postReq;
 
 /***/ }),
 /* 12 */
-/*!****************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/utils/util.js ***!
-  \****************************************************************************/
+/*!*******************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/utils/util.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9304,9 +9308,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 16 */
-/*!*****************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/store/index.js ***!
-  \*****************************************************************************/
+/*!********************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/store/index.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10506,9 +10510,9 @@ var index = {
 /* 30 */,
 /* 31 */,
 /* 32 */
-/*!****************************************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/wxcomponents/vant/dist/toast/toast.js ***!
-  \****************************************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/wxcomponents/vant/dist/toast/toast.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10586,9 +10590,9 @@ Toast;exports.default = _default;
 
 /***/ }),
 /* 33 */
-/*!*********************************************************************************************************!*\
-  !*** C:/Users/13213/Desktop/vue_test/uni-app-LucaBrasiMonth/wxcomponents/vant/dist/common/validator.js ***!
-  \*********************************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** C:/Users/13213/Desktop/uni-app-LucaBrasiMonth/wxcomponents/vant/dist/common/validator.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -30,8 +30,7 @@
   bottom: 0;
   z-index: 999;
   width: 100%;
-  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12);
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -43,8 +42,7 @@
           justify-content: space-between;
   padding: 0 5rpx;
   padding-top: 8rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #fff;
 }
 .tab-bar-container .navigator.data-v-852a8b4e {

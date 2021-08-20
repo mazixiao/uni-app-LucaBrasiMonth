@@ -59,8 +59,7 @@
   height: 96rpx;
   background: #ffffff;
   border-radius: 48rpx;
-  -webkit-box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
-          box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
   padding-left: 100rpx;
   font-size: 28rpx;
   font-family: PingFangSC, PingFangSC-Regular;
@@ -82,7 +81,6 @@
   height: 60rpx;
   line-height: 60rpx;
   text-align: center;
-  background: -webkit-gradient(linear, right top, left top, from(#9c528a), to(#d7778c));
   background: -webkit-linear-gradient(right, #9c528a, #d7778c);
   background: linear-gradient(270deg, #9c528a, #d7778c);
   border: 0rpx solid #c86b6e;

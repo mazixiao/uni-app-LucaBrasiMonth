@@ -19,14 +19,14 @@
 
 		<br>
 		<component111Child>
-			<template #header>
+			<template v-slot:header>
 				<view>我是插槽的头部</view>
 			</template>
-			<template v-slot:default="slotProps">
+			<template v-slot:default>
 				<view>我是插槽的内容</view>
 				<view>我是插槽的内容</view>
 			</template>
-			<template #footer>
+			<template v-slot:footer>
 				<view>我是插槽的底部</view>
 			</template>
 

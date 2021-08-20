@@ -108,8 +108,7 @@
   height: 250rpx;
   background: #ffffff;
   border-radius: 52rpx;
-  -webkit-box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
-          box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
   padding-top: 32rpx;
   padding-left: 36rpx;
 }
@@ -141,8 +140,7 @@
   height: 104rpx;
   background: #ffffff;
   border-radius: 52rpx;
-  -webkit-box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
-          box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
+  box-shadow: 0rpx 0rpx 16rpx 0rpx rgba(238, 191, 204, 0.36);
   padding-left: 42rpx;
   font-size: 30rpx;
   font-family: PingFangSC, PingFangSC-Regular;
