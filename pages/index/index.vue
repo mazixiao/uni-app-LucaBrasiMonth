@@ -38,6 +38,10 @@
 			</view>
 		</view>
 		<van-toast id="van-toast" />
+		    <view @click="numAdd1">myMixin1传递过来的方法，点击数字: {{num}}</view>
+		    <view @click="numAdd2">myMixin2传递过来的方法，点击数字: {{num222}}<view>
+		<br>
+		<br>
 		<van-button type="primary" @click="showToast">测试vant轻提示和测试防止重复提交</van-button>
 
 		<navigator url="/packageA/pages/test/test" hover-class="navigator-hover">跳转到分包页面</navigator>
@@ -68,11 +72,14 @@
 	import Toast from '../../wxcomponents/vant/dist/toast/toast';
 
 	import component111 from "../../components/component111.vue";
+	
+	  import {myMixin1, myMixin2} from '../../static/js/mixins.js'
 
 
 	const mdCode = require('../../utils/md5.js');
 	const desCode = require('../../utils/aesUtil.js');
 	const api_js = require("../../utils/api.js");
+	
 	let App = getApp()
 	export default {
 		name: "index",
@@ -82,6 +89,7 @@
 			component111,
 			// 当前tab高亮索引
 		},
+		 mixins: [myMixin1, myMixin2],
 
 		data() {
 			return {
@@ -119,11 +127,18 @@
 				}
 			}
 		},
-
-
+    created() {
+      this.num++;
+      this.hello();
+      console.log(this.num222, "this.num-使用");
+      console.log(this.numAdd1(), "numAdd++ 使用");
+      this.func_one();
+      this.func_two();
+    },
 		onLoad() {
-
-
+			
+	      this.hello();
+	      console.log(this.num, "this.num-当前页面");
 
 			//获取全局变量
 			console.log(App.globalData.test);
@@ -151,6 +166,9 @@
 
 
 			this.parentFun();
+			
+
+			
 
 
 		},
@@ -253,7 +271,19 @@
 			parentFun() {
 				this.add = this.add + 10;
 				console.log(this.add)
-			}
+			},
+			
+			
+			      updateInfo() {
+			        console.log('update info');
+			      },
+			      delInfo() {
+			        console.log('delete info');
+			      },
+			      func_two() {
+			        console.log("func_two 方法被使用");
+			      },
+			
 
 		},
 

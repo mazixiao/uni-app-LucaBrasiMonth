@@ -92,15 +92,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-}
-var recyclableRender = false
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
+var recyclableRender
+var components
 
 
 
@@ -187,6 +182,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _vuex = __webpack_require__(/*! vuex */ 17);
 
 
@@ -197,14 +196,17 @@ var _vuex = __webpack_require__(/*! vuex */ 17);
 
 
 
-var _toast = _interopRequireDefault(__webpack_require__(/*! ../../wxcomponents/vant/dist/toast/toast */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 123));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var component111 = function component111() {__webpack_require__.e(/*! require.ensure | components/component111 */ "components/component111").then((function () {return resolve(__webpack_require__(/*! ../../components/component111.vue */ 130));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _toast = _interopRequireDefault(__webpack_require__(/*! ../../wxcomponents/vant/dist/toast/toast */ 32));
 
 
+
+var _mixins = __webpack_require__(/*! ../../static/js/mixins.js */ 155);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var headers = function headers() {__webpack_require__.e(/*! require.ensure | components/headers */ "components/headers").then((function () {return resolve(__webpack_require__(/*! ../../components/headers.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabbar = function tabbar() {__webpack_require__.e(/*! require.ensure | components/tabbar */ "components/tabbar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabbar.vue */ 123));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var component111 = function component111() {__webpack_require__.e(/*! require.ensure | components/component111 */ "components/component111").then((function () {return resolve(__webpack_require__(/*! ../../components/component111.vue */ 130));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 var mdCode = __webpack_require__(/*! ../../utils/md5.js */ 10);
 var desCode = __webpack_require__(/*! ../../utils/aesUtil.js */ 8);
 var api_js = __webpack_require__(/*! ../../utils/api.js */ 11);
+
 var App = getApp();var _default =
 {
   name: "index",
@@ -214,6 +216,7 @@ var App = getApp();var _default =
     component111: component111
     // 当前tab高亮索引
   },
+  mixins: [_mixins.myMixin1, _mixins.myMixin2],
 
   data: function data() {
     return {
@@ -251,11 +254,18 @@ var App = getApp();var _default =
       } } }),
 
 
-
-
+  created: function created() {
+    this.num++;
+    this.hello();
+    console.log(this.num222, "this.num-使用");
+    console.log(this.numAdd1(), "numAdd++ 使用");
+    this.func_one();
+    this.func_two();
+  },
   onLoad: function onLoad() {
 
-
+    this.hello();
+    console.log(this.num, "this.num-当前页面");
 
     //获取全局变量
     console.log(App.globalData.test);
@@ -283,6 +293,9 @@ var App = getApp();var _default =
 
 
     this.parentFun();
+
+
+
 
 
   },
@@ -385,7 +398,19 @@ var App = getApp();var _default =
     parentFun: function parentFun() {
       this.add = this.add + 10;
       console.log(this.add);
+    },
+
+
+    updateInfo: function updateInfo() {
+      console.log('update info');
+    },
+    delInfo: function delInfo() {
+      console.log('delete info');
+    },
+    func_two: function func_two() {
+      console.log("func_two 方法被使用");
     } }),
+
 
 
 
